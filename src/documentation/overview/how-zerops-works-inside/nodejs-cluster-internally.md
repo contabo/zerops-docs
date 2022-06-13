@@ -1,6 +1,6 @@
-# Node.js Service in HA Mode, Internal
+# Node.js Service in HA Mode, a deep-dive view
 
-The following picture shows a simplified schema of a standalone [Zerops Node.js Service](/documentation/services/runtimes/nodejs.html) in HA mode with a default of **3** runtime environment instances (horizontally scaled **up to 64** instances) as a **Node.js cluster** without external access. This means no access from outside of the Zerops project infrastructure, such as the Internet. Access is only possible through a private network using a [tcp/udp port](/documentation/services/runtimes/nodejs.html#port) **==3000==** (could be added others) from the [Zerops Project Core Service](/documentation/overview/how-zerops-works-inside/typical-schemas-of-zerops-projects.html) itself, which is the heart of each user-defined Zerops project.
+The following picture shows a simplified schema of a standalone [Zerops Node.js Service](/documentation/services/runtimes/nodejs.html) in HA mode with **3** runtime environment instances as a **Node.js cluster** without external access. This means no access from outside of the Zerops project infrastructure, such as the Internet. Access is only possible through a private network using a [tcp/udp port](/documentation/services/runtimes/nodejs.html#port) **==3000==** (could be added others) from the [Zerops Project Core Service](/documentation/overview/how-zerops-works-inside/typical-schemas-of-zerops-projects.html) itself, which is the heart of each user-defined Zerops project.
 
 ## Simplified schema (no external access)
 

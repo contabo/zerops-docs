@@ -160,7 +160,7 @@ The [Object Storage](/documentation/services/storage/s3.html#used-technology) se
 
 `minContainers`: integer [>= 1 and <= 4]
 
-Affects how many containers a service should run on as a minimum. Zerops applies the [horizontal scaling](/documentation/automatic-scaling/how-automatic-scaling-works.html#horizontal-scaling) feature up to the 4 containers as a maximum, running the service in **high availability mode**. It is related only to [Node.js](/documentation/services/runtimes/nodejs.html#ha-non-ha-runtime-environment-mode), [Golang](/documentation/services/runtimes/golang.html#ha-non-ha-runtime-environment-mode), [PHP](/documentation/services/runtimes/php.html#ha-non-ha-runtime-environment-mode), and [Static server](/documentation/services/static-servers/nginx.html#ha-non-ha-mode).
+Affects how many containers a service should run on as a minimum. Zerops applies automatically the [horizontal scaling](/documentation/automatic-scaling/how-automatic-scaling-works.html#horizontal-scaling) up to the 4 containers as a maximum, running the service in **high availability mode**. It is related only to [Node.js](/documentation/services/runtimes/nodejs.html#ha-non-ha-runtime-environment-mode), [Golang](/documentation/services/runtimes/golang.html#ha-non-ha-runtime-environment-mode), [PHP](/documentation/services/runtimes/php.html#ha-non-ha-runtime-environment-mode), and [Static server](/documentation/services/static-servers/nginx.html#ha-non-ha-mode).
 
 <!-- markdownlint-disable DOCSMD004 -->
 ::: tip How to set up the non high availability mode

@@ -59,7 +59,7 @@ There's only one namespace for all service hostnames, shared storage names, and 
 
 #### HA / non-HA shared storage mode
 
-When creating a new service, you can choose whether the shared storage should be run in **HA** (High Availability) mode, using 3 containers, or **non-HA mode**, using only a single container. ==**The chosen mode can't be changed later.**== If you would like to learn more about the technical details and how this service is built internally, take a look at the [Shared Storage Service, deep dive view](/documentation/overview/how-zerops-works-inside/glusterfs-cluster-internally.html) part of the documentation.
+When creating a new service, you can choose whether the shared storage should be run in **HA** (High Availability) mode, using 3 containers, or **non-HA mode**, using only a single container. ==**The chosen mode can't be changed later.**== If you would like to learn more about the technical details and how this service is built internally, take a look at the [Shared Storage Service in HA mode, a deep-dive view](/documentation/overview/how-zerops-works-inside/glusterfs-cluster-internally.html) part of the documentation.
 
 ##### Shared storage in non-HA mode
 

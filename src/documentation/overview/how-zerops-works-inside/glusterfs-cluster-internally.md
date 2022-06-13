@@ -1,4 +1,4 @@
-# Shared Storage Service, deep dive view
+# Shared Storage Service, a deep-dive view
 
 The following figure shows a simplified schema of a [Zerops Shared Storage Service](/documentation/services/storage/shared.html) in HA mode based on the [GlusterFS cluster](https://docs.gluster.org/en/latest/Quick-Start-Guide/Architecture) technology.
 

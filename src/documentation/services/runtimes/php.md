@@ -24,7 +24,8 @@ services:
   type: php-apache@8.0+2.4
   # Whether the service will be run on one or multiple containers.
   # Since this is a simple example, using only one container is fine.
-  mode: NON_HA
+  minContainers: 1
+  maxContainers: 1
   # Folder name used as the root of the publicly accessible web server content.
   documentRoot: public
 ```
@@ -112,7 +113,11 @@ location ^~ /uploads/ {
 
 #### HA / non-HA runtime environment mode
 
-When creating a new service, you can choose whether the runtime environment should be run in **HA** (High Availability) mode, using 3 or more containers, or **non-HA mode**, only using 1 container. ==**The chosen runtime environment mode can't be changed later.**== If you would like to learn more about the technical details and how this service is built internally, take a look at the [PHP Service in HA Mode, Internal](/documentation/overview/how-zerops-works-inside/php-cluster-internally.html) part of the documentation.
+When creating a new service, you can choose how many containers the runtime environment should be run on. The default setting starts with 1 container, allowing the automatic horizontal scaling up to 4 containers. To guarantee **HA** (High Availability) mode from the beginning, you should adjust the minimum container numbers to 2 at least. If you want to use only **non-HA mode** with 1 container, the minimum and maximum container numbers should be set to 1. ==**The chosen number of containers can be changed anytime later.**== If you would like to learn more about the technical details and how this service is built internally, take a look at the [PHP Service in HA Mode, a deep-dive view](/documentation/overview/how-zerops-works-inside/php-cluster-internally.html) part of the documentation.
+
+![PHP HA / non-HA mode](./images/Runtime-Service-Horizontal-Scaling.png "Horizontal scaling")
+
+![PHP HA / non-HA mode](./images/Runtime-Service-Horizontal-Scaling-Adjust-PHP.png "Horizontal scaling adjusting")
 
 ##### PHP runtime in non-HA mode
 
@@ -129,11 +134,11 @@ Even when using the non-HA mode for a production project, we nonetheless recomme
 
 ##### PHP runtime in HA mode
 
-* will start to run on three containers, each on a **different physical machine**,
-* with increasing operating load, the number of containers can reach up to 64,
-* therefore the application runs redundantly in 3 or more places, with no risk of total failure,
+* runs on two containers at least, each on a **different physical machine**,
+* with increasing operating load, the number of containers can reach up to 4,
+* therefore the application runs redundantly in more places, with no risk of total failure,
 * when one container fails, it's automatically replaced with a new one,
-* it's necessary to respect all of the [specifics](#what-you-should-remember-when-using-ha-mode) related to a PHP cluster,
+* the need to respect all of the [specifics](#what-you-should-remember-when-using-ha-mode) related to a PHP cluster,
 * recommended for production projects.
 
 ## How to deploy application code
@@ -220,8 +225,8 @@ To understand this better, take a look at the following section: [With external 
 
 ## Default hardware configuration and autoscaling
 
-* Each PHP container (1 in non-HA, 3 in HA) starts with 1 vCPU, 0.25 GB RAM, and 5 GB of disk space.
-* Zerops will automatically scale the resources vertically (both in non-HA and HA mode up to 32 vCPU, 128 GB RAM, 1 TB disk space) and horizontally (HA mode only, up to 64 containers).
+* Each PHP container starts with 1 vCPU, 0.25 GB RAM, and 5 GB of disk space.
+* Zerops will automatically scale the resources vertically (up to 20 vCPU, 32 GB RAM, 100 GB DISK) and horizontally (up to 4 containers).
 
 ## Pre-installed PHP Composer
 
