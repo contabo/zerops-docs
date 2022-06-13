@@ -1,4 +1,4 @@
-# KeyDB Service in HA Mode, Internal
+# KeyDB Service in HA Mode, a deep-dive view
 
 The following picture shows a simplified schema of a standalone [Zerops KeyDB Service](/documentation/services/databases/keydb.html) in HA mode (with a default of 2 database instances) without external access. This means no access from outside of the Zerops project infrastructure, such as the Internet. Native access is only possible through a private network using a [default ports](/documentation/services/databases/keydb.html#hostname-and-ports) **==6379==** from the [Zerops Project Core Service](/documentation/overview/how-zerops-works-inside/typical-schemas-of-zerops-projects.html) itself, which is at the heart of each user-defined Zerops project.
 

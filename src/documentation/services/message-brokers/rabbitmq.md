@@ -74,7 +74,7 @@ The following image shows the case of the `management.ikbase.eu` public domain i
 
 #### HA / non-HA message broker mode
 
-When creating a new service, you can choose whether the database should be run in **HA** (High Availability) mode, using 3 containers, or **non-HA mode**, using only 1 container. ==**The chosen database mode can't be changed later.**== If you would like to learn more about the technical details and how this service is built internally, take a look at the [RabbitMQ Service in HA Mode, Internal](/documentation/overview/how-zerops-works-inside/rabbitmq-cluster-internally.html).
+When creating a new service, you can choose whether the database should be run in **HA** (High Availability) mode, using 3 containers, or **non-HA mode**, using only 1 container. ==**The chosen database mode can't be changed later.**== If you would like to learn more about the technical details and how this service is built internally, take a look at the [RabbitMQ Service in HA Mode, a deep-dive view](/documentation/overview/how-zerops-works-inside/rabbitmq-cluster-internally.html).
 
 ##### RabbitMQ in non-HA mode
 

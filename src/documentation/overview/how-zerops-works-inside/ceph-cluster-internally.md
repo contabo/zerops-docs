@@ -1,4 +1,4 @@
-# Object Storage Service, Internal
+# Object Storage Service, a deep-dive view
 
 The following figure shows a simplified schema of a standalone shared [Zerops S3 compatible Object Storage Service](/documentation/services/storage/s3.html) based on the [Ceph cluster](https://docs.ceph.com/en/latest/architecture) technology. At the heart of the Ceph storage cluster is the **CRUSH** algorithm. It calculates which **Storage node** needs to be contacted to retrieve or store data.
 

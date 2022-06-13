@@ -1,4 +1,4 @@
-# RabbitMQ Service in HA Mode, Internal
+# RabbitMQ Service in HA Mode, a deep-dive view
 
 The following picture shows a simplified schema of a standalone [Zerops RabbitMQ Service](/documentation/services/message-brokers/rabbitmq.html) in HA mode without external access. This means no access from outside of the Zerops project infrastructure, such as the Internet. Native access is only possible through a private network using a [default ports](/documentation/services/message-brokers/rabbitmq.html#hostname-and-ports) **==1883==**, **==5672==**, **==61613==**, **==15672==**, **==15674==**, or **==15675==** from the [Zerops Project Core Service](/documentation/overview/how-zerops-works-inside/typical-schemas-of-zerops-projects.html) itself, which is at the heart of each user-defined Zerops project.
 
