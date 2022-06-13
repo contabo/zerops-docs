@@ -40,7 +40,7 @@ services:
 - hostname: app
   type: nodejs@14
   priority: 1
-  mode: HA
+  minContainers: 2
   ports:
   - port: 3000
     httpSupport: true
@@ -126,29 +126,69 @@ This allows you to control precisely the order in which the services will be cre
 
 If more of the same `priority` values exist (including none priorities), the creation of all services within the same priority group is invoked at the exact moment, and the final availability of these services is not explicitly controlled (depends on the service type and other parameters).
 
-![Zerops import priorities](./images/Timeline_Servics_Priorities.png "Zerops import priorities")
+![Zerops import priorities](./images/Timeline_Services_Priorities.png "Zerops import priorities")
 
 #### mode
 
 `mode`: dictionary
 
-Affects whether a service should be run in ==**`HA`**== (High Availability) mode, using 3 or more containers, or ==**`NON_HA`**== mode, using only 1 container. Related to [PostgreSQL](/documentation/services/databases/postgresql.html#ha-non-ha-database-mode), [MariaDB](/documentation/services/databases/mariadb.html#ha-non-ha-database-mode), [KeyDB](/documentation/services/databases/keydb.html#ha-non-ha-database-mode), [Node.js](/documentation/services/runtimes/nodejs.html#ha-non-ha-runtime-environment-mode), [Golang](/documentation/services/runtimes/golang.html#ha-non-ha-runtime-environment-mode), [PHP](/documentation/services/runtimes/php.html#ha-non-ha-runtime-environment-mode), [RabbitMQ](/documentation/services/message-brokers/rabbitmq.html#ha-non-ha-mode), and [Shared Storage](/documentation/services/storage/shared.html#ha-non-ha-shared-storage-mode). The [Object Storage](/documentation/services/storage/s3.html#used-technology) service is the fully managed service and the `mode` property is **Not Available** to set from a user side.
+Affects whether a service should be run in ==**`HA`**== (High Availability) mode, using 3 or more containers, or ==**`NON_HA`**== mode, using only 1 container. It is related only to [PostgreSQL](/documentation/services/databases/postgresql.html#ha-non-ha-database-mode), [MariaDB](/documentation/services/databases/mariadb.html#ha-non-ha-database-mode), [KeyDB](/documentation/services/databases/keydb.html#ha-non-ha-database-mode), [RabbitMQ](/documentation/services/message-brokers/rabbitmq.html#ha-non-ha-mode), and [Shared Storage](/documentation/services/storage/shared.html#ha-non-ha-shared-storage-mode).
 
 Comprehensive table of available modes:
 
-|Service        |Modes      |Comment                            |
-|:--------------|:----------|:----------------------------------|
-|PostgreSQL     |NON_HA, HA |                                   |
-|MariaDB        |NON_HA, HA |                                   |
-|KeyDB          |NON_HA, HA |                                   |
-|Node.js        |NON_HA, HA |                                   |
-|Golang         |NON_HA, HA |                                   |
-|PHP+Apache     |NON_HA, HA |                                   |
-|PHP+Nginx      |NON_HA, HA |                                   |
-|Static server  |NON_HA, HA |                                   |
-|RabbitMQ       |NON_HA, HA |                                   |
-|Object storage |N/A        |Fully managed by Zerops. Don't use.|
-|Shared storage |NON_HA, HA |                                   |
+|Service        |Mode         |
+|:--------------|:------------|
+|PostgreSQL     |NON_HA or HA |
+|MariaDB        |NON_HA or HA |
+|KeyDB          |NON_HA or HA |
+|RabbitMQ       |NON_HA or HA |
+|Shared storage |NON_HA or HA |
+
+<!-- markdownlint-disable DOCSMD004 -->
+::: tip Zerops runtime and static server services & High Availability
+For runtime services ([Node.js](/documentation/services/runtimes/nodejs.html#ha-non-ha-runtime-environment-mode), [Golang](/documentation/services/runtimes/golang.html#ha-non-ha-runtime-environment-mode), [PHP](/documentation/services/runtimes/php.html#ha-non-ha-runtime-environment-mode), and [Static server](/documentation/services/static-servers/nginx.html#ha-non-ha-mode) service) there is the [minContainers](#minContainers) property that allows a user to set a service high availability level.
+:::
+<!-- markdownlint-enable DOCSMD004 -->
+
+<!-- markdownlint-disable DOCSMD004 -->
+::: warning Object Storage Service
+The [Object Storage](/documentation/services/storage/s3.html#used-technology) service is the fully Zerops managed service and a user can't influence its functionality by this property.
+:::
+<!-- markdownlint-enable DOCSMD004 -->
+
+#### minContainers
+
+`minContainers`: integer [>= 1 and <= 4]
+
+Affects how many containers a service should run on as a minimum. Zerops applies the [horizontal scaling](/documentation/automatic-scaling/how-automatic-scaling-works.html#horizontal-scaling) feature up to the 4 containers as a maximum, running the service in **high availability mode**. It is related only to [Node.js](/documentation/services/runtimes/nodejs.html#ha-non-ha-runtime-environment-mode), [Golang](/documentation/services/runtimes/golang.html#ha-non-ha-runtime-environment-mode), [PHP](/documentation/services/runtimes/php.html#ha-non-ha-runtime-environment-mode), and [Static server](/documentation/services/static-servers/nginx.html#ha-non-ha-mode).
+
+<!-- markdownlint-disable DOCSMD004 -->
+::: tip How to set up the non high availability mode
+If you want to run the service only on 1 container, you have to set `minContainers: 1` and also [maxContainers](#maxContainers) parameter as `maxContainers: 1`.
+:::
+<!-- markdownlint-enable DOCSMD004 -->
+
+Comprehensive table of available values:
+
+|Service        |minContainers |
+|:--------------|:-------------|
+|Node.js        |>= 1 and <= 4 |
+|Golang         |>= 1 and <= 4 |
+|PHP+Apache     |>= 1 and <= 4 |
+|PHP+Nginx      |>= 1 and <= 4 |
+|Static server  |>= 1 and <= 4 |
+
+<!-- markdownlint-disable DOCSMD004 -->
+::: tip Zerops database, message brokers, and shared storage services & High Availability
+There is the [mode](#mode) property that allows a user to set whether a service should run in HA mode or not.
+:::
+<!-- markdownlint-enable DOCSMD004 -->
+
+#### maxContainers
+
+`maxContainers`: integer [>= [minContainers](#minContainers) and <= 4] optional
+
+Affects how many containers a service should run on as a maximum when Zerops applies the [horizontal scaling](/documentation/automatic-scaling/how-automatic-scaling-works.html#horizontal-scaling) feature. It is related only to [Node.js](/documentation/services/runtimes/nodejs.html#ha-non-ha-runtime-environment-mode), [Golang](/documentation/services/runtimes/golang.html#ha-non-ha-runtime-environment-mode), [PHP](/documentation/services/runtimes/php.html#ha-non-ha-runtime-environment-mode), and [Static server](/documentation/services/static-servers/nginx.html#ha-non-ha-mode).
 
 #### ports
 
@@ -197,7 +237,8 @@ An environment variable content.
 ```yaml
 - hostname: app
   type: nodejs@14
-  mode: NON_HA
+  minContainers: 1
+  maxContainers: 1
   ports:
   - port: 3000
     httpSupport: true
@@ -252,7 +293,8 @@ For example, this could be the exported value if a user accepts the default sett
 services:
   - hostname: phpnginx
     type: php-nginx@8.0+1.20
-    mode: NON_HA
+    minContainers: 1
+    maxContainers: 1
     nginxConfig: |
       server {
         listen 80;
@@ -286,7 +328,8 @@ And this is an example for the same when creating the Nginx Static server servic
 services:
   - hostname: nginx
     type: nginx@1.20
-    mode: NON_HA
+    minContainers: 1
+    maxContainers: 1
     nginxConfig: |
       server {
           listen 80 default_server;
@@ -333,7 +376,9 @@ Before allowing access to a service from the external Internet, it's important t
 :::
 <!-- markdownlint-enable DOCSMD004 -->
 
+<!-- markdownlint-disable MD029 -->
 3. When using shared storage services, neither the export nor the import doesn't support the [storage mounting points](/documentation/services/storage/shared.html#storage-mounting) in relation to [Node.js](/documentation/services/runtimes/nodejs.html#accessing-a-zerops-shared-storage), [Golang](/documentation/services/runtimes/golang.html#accessing-a-zerops-shared-storage), and [PHP](/documentation/services/runtimes/php.html#accessing-a-zerops-shared-storage) runtime environment services. It means that the export doesn't publish already mounted shared storage services, and the import doesn't allow to specify which ones should be enabled on which runtime services. Mounting them to the existing runtime services must be done later manually in the Zerops GUI.
+<!-- markdownlint-enable MD029 -->
 
 ## Zerops recipes
 
