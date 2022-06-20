@@ -19,7 +19,7 @@
     "@vuepress/plugin-medium-zoom": "1.9.7",
     "vuepress": "1.9.7",
     "vuepress-plugin-element-tabs": "0.2.8",
-    "vuepress-plugin-md-enhance": "1.28.3",
+    "vuepress-plugin-md-enhance": "1.31.0-beta.2",
     "vuepress-plugin-zooming": "1.1.8"
   }
 }

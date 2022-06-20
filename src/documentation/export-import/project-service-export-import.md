@@ -41,6 +41,9 @@ services:
   type: nodejs@14
   priority: 1
   minContainers: 2
+  verticalAutoscaling:
+    minVirtualCpu: 5
+    maxVirtualCpu: 10
   ports:
   - port: 3000
     httpSupport: true
@@ -53,6 +56,8 @@ services:
 - hostname: sharedstorage
   type: shared-storage
   mode: NON_HA
+  verticalAutoscaling:
+    minDisk: 25.5
 ```
 
 ### project
@@ -178,6 +183,8 @@ Comprehensive table of available values:
 |PHP+Nginx      |>= 1 and <= 4 |
 |Static server  |>= 1 and <= 4 |
 
+The upper limit for the minimum of containers can be generally different for each service type and can be changed in the future.
+
 <!-- markdownlint-disable DOCSMD004 -->
 ::: tip Zerops database, message brokers, and shared storage services & High Availability
 There is the [mode](#mode) property that allows a user to set whether a service should run in HA mode or not.
@@ -189,6 +196,8 @@ There is the [mode](#mode) property that allows a user to set whether a service 
 `maxContainers`: integer [>= [minContainers](#minContainers) and <= 4] optional
 
 Affects how many containers a service should run on as a maximum when Zerops applies the [horizontal scaling](/documentation/automatic-scaling/how-automatic-scaling-works.html#horizontal-scaling) feature. It is related only to [Node.js](/documentation/services/runtimes/nodejs.html#ha-non-ha-runtime-environment-mode), [Golang](/documentation/services/runtimes/golang.html#ha-non-ha-runtime-environment-mode), [PHP](/documentation/services/runtimes/php.html#ha-non-ha-runtime-environment-mode), and [Static server](/documentation/services/static-servers/nginx.html#ha-non-ha-mode).
+
+The upper limit for the maximum of containers can be generally different for each service type and can be changed in the future.
 
 #### ports
 
@@ -218,9 +227,9 @@ The default value ==`true`== indicates if a web server runs on the port (HTTP ap
 
 #### envVariables
 
-`envVariables`: Map[EnvironmentVariable] (optional)
+`envVariables`: Map[key:value] (optional)
 
-A sequence of [service environment variables](/documentation/environment-variables/how-to-access.html) (0~N). Each one is defined by a `key:value` format.
+A sequence of [service environment variables](/documentation/environment-variables/how-to-access.html) (0~N).
 
 ##### key
 
@@ -346,6 +355,111 @@ services:
           access_log syslog:server=unix:/dev/log,facility=local1 default_short;
           error_log syslog:server=unix:/dev/log,facility=local1;
       }
+```
+
+#### verticalAutoscaling
+
+`verticalAutoscaling`: Map[`key:value`] (optional)
+
+A vertical autoscaling map allows the following keys: `minVirtualCpu`, `maxVirtualCpu`, `minRam`, `maxRam`, `minDisk`, `maxDisk`.
+
+Related to all services except [Object Storage](/documentation/services/storage/s3.html).
+
+##### minVirtualCpu
+
+`minVirtualCpu`: integer [>= 1 and <= upper service limit] (optional)
+
+A minimum number of virtual CPUs (vCPU) to be allocated for a given service. If the [maxVirtualCpu](#maxVirtualCpu)] property is not specified, the service will be scaled to the upper service limit (which can be generally different for each service type and can be changed in the future).
+
+##### maxVirtualCpu
+
+`maxVirtualCpu`: integer [>= [minVirtualCpu](#minVirtualCpu) and <= upper service limit] (optional)
+
+A maximum number of virtual CPUs (vCPU) to be allocated for a given service. If the [minVirtualCpu](#minVirtualCpu) property is not specified, the service will be scaled from the lower service limit.
+
+Actual service vCPU lower and upper limits:
+
+|Service vCPU   |lower limit |upper limit |
+|:--------------|:-----------|:-----------|
+|PostgreSQL     |1           |20          |
+|MariaDB        |1           |20          |
+|KeyDB          |1           |20          |
+|RabbitMQ       |1           |20          |
+|Shared storage |1           |20          |
+|Node.js        |1           |20          |
+|Golang         |1           |20          |
+|PHP+Apache     |1           |20          |
+|PHP+Nginx      |1           |20          |
+|Static server  |1           |20          |
+
+The lower and upper service limits of vCPU can be generally different for each service type and can be changed in the future.
+
+##### minRam
+
+`minRam`: float [>= lower service limit and <= upper service limit] in GB (optional)
+
+A minimum size of RAM (in GB) to be allocated for a given service. If the [maxRam](#maxRam)] property is not specified, the service will be scaled to the upper service limit (which can be generally different for each service type and can be changed in the future).
+
+##### maxRam
+
+`maxRam`: float [>= lower service limit and <= upper service limit] in GB (optional)
+
+A maximum size of RAM (in GB) to be allocated for a given service. If the [minRam](#minRam) property is not specified, the service will be scaled from the lower service limit.
+
+Actual service RAM lower and upper limits:
+
+|Service RAM in GB |lower limit |upper limit |step |
+|:-----------------|:-----------|:-----------|:----|
+|PostgreSQL        |1           |32          |0.25 |
+|MariaDB           |1           |32          |0.25 |
+|KeyDB             |1           |32          |0.25 |
+|RabbitMQ          |1           |32          |0.25 |
+|Shared storage    |1           |32          |0.25 |
+|Node.js           |1           |32          |0.25 |
+|Golang            |1           |32          |0.25 |
+|PHP+Apache        |1           |32          |0.25 |
+|PHP+Nginx         |1           |32          |0.25 |
+|Static server     |1           |32          |0.25 |
+
+The lower and upper service limits of RAM can be generally different for each service type and can be changed in the future.
+
+##### minDisk
+
+`minDisk`: float [>= lower service limit and <= upper service limit] in GB (optional)
+
+A minimum size of DISK (in GB) to be allocated for a given service. If the [maxDisk](#maxDisk)] property is not specified, the service will be scaled to the upper service limit (which can be generally different for each service type and can be changed in the future).
+
+##### maxDisk
+
+`maxDisk`: float [>= lower service limit and <= upper service limit] in GB (optional)
+
+A maximum size of DISK (in GB) to be allocated for a given service. If the [minDisk](#minDisk) property is not specified, the service will be scaled from the lower service limit.
+
+Actual service DISK lower and upper limits:
+
+|Service DISK in GB |lower limit |upper limit |step |
+|:------------------|:-----------|:-----------|:----|
+|PostgreSQL         |5           |100         |0.5  |
+|MariaDB            |5           |100         |0.5  |
+|KeyDB              |5           |100         |0.5  |
+|RabbitMQ           |5           |100         |0.5  |
+|Shared storage     |1           |100         |0.5  |
+|Node.js            |1           |100         |0.5  |
+|Golang             |1           |100         |0.5  |
+|PHP+Apache         |1           |100         |0.5  |
+|PHP+Nginx          |1           |100         |0.5  |
+|Static server      |1           |100         |0.5  |
+
+The lower and upper service limits of DISK can be generally different for each service type and can be changed in the future.
+
+Example of the verticalAutoscaling syntax:
+
+```yml
+verticalAutoscaling:
+  minVirtualCpu: 5
+  maxVirtualCpu: 10
+  maxRam: 19.75
+  minDisk: 25.5
 ```
 
 #### objectStorageSize
