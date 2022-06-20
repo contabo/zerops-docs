@@ -369,7 +369,7 @@ Related to all services except [Object Storage](/documentation/services/storage/
 
 `minCpu`: integer [>= 1 and <= upper service limit] (optional)
 
-A minimum number of virtual CPUs (vCPU) to be allocated for a given service. If the [maxCpu](#maxCpu)] property is not specified, the service will be scaled to the upper service limit (which can be generally different for each service type and can be changed in the future).
+A minimum number of virtual CPUs (vCPU) to be allocated for a given service. If the [maxCpu](#maxCpu) property is not specified, the service will be scaled to the upper service limit (which can be generally different for each service type and can be changed in the future).
 
 ##### maxCpu
 
@@ -398,7 +398,7 @@ The lower and upper service limits of vCPU can be generally different for each s
 
 `minRam`: float [>= lower service limit and <= upper service limit] in GB (optional)
 
-A minimum size of RAM (in GB) to be allocated for a given service. If the [maxRam](#maxRam)] property is not specified, the service will be scaled to the upper service limit (which can be generally different for each service type and can be changed in the future).
+A minimum size of RAM (in GB) to be allocated for a given service. If the [maxRam](#maxRam) property is not specified, the service will be scaled to the upper service limit (which can be generally different for each service type and can be changed in the future).
 
 ##### maxRam
 
@@ -427,7 +427,7 @@ The lower and upper service limits of RAM can be generally different for each se
 
 `minDisk`: float [>= lower service limit and <= upper service limit] in GB (optional)
 
-A minimum size of DISK (in GB) to be allocated for a given service. If the [maxDisk](#maxDisk)] property is not specified, the service will be scaled to the upper service limit (which can be generally different for each service type and can be changed in the future).
+A minimum size of DISK (in GB) to be allocated for a given service. If the [maxDisk](#maxDisk) property is not specified, the service will be scaled to the upper service limit (which can be generally different for each service type and can be changed in the future).
 
 ##### maxDisk
 
