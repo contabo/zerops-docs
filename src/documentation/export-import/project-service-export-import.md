@@ -42,8 +42,8 @@ services:
   priority: 1
   minContainers: 2
   verticalAutoscaling:
-    minVirtualCpu: 5
-    maxVirtualCpu: 10
+    minCpu: 5
+    maxCpu: 10
   ports:
   - port: 3000
     httpSupport: true
@@ -361,21 +361,21 @@ services:
 
 `verticalAutoscaling`: Map[`key:value`] (optional)
 
-A vertical autoscaling map allows the following keys: `minVirtualCpu`, `maxVirtualCpu`, `minRam`, `maxRam`, `minDisk`, `maxDisk`.
+A vertical autoscaling map allows the following keys: `minCpu`, `maxCpu`, `minRam`, `maxRam`, `minDisk`, `maxDisk`.
 
 Related to all services except [Object Storage](/documentation/services/storage/s3.html).
 
-##### minVirtualCpu
+##### minCpu
 
-`minVirtualCpu`: integer [>= 1 and <= upper service limit] (optional)
+`minCpu`: integer [>= 1 and <= upper service limit] (optional)
 
-A minimum number of virtual CPUs (vCPU) to be allocated for a given service. If the [maxVirtualCpu](#maxVirtualCpu)] property is not specified, the service will be scaled to the upper service limit (which can be generally different for each service type and can be changed in the future).
+A minimum number of virtual CPUs (vCPU) to be allocated for a given service. If the [maxCpu](#maxCpu)] property is not specified, the service will be scaled to the upper service limit (which can be generally different for each service type and can be changed in the future).
 
-##### maxVirtualCpu
+##### maxCpu
 
-`maxVirtualCpu`: integer [>= [minVirtualCpu](#minVirtualCpu) and <= upper service limit] (optional)
+`maxCpu`: integer [>= [minCpu](#minCpu) and <= upper service limit] (optional)
 
-A maximum number of virtual CPUs (vCPU) to be allocated for a given service. If the [minVirtualCpu](#minVirtualCpu) property is not specified, the service will be scaled from the lower service limit.
+A maximum number of virtual CPUs (vCPU) to be allocated for a given service. If the [minCpu](#minCpu) property is not specified, the service will be scaled from the lower service limit.
 
 Actual service vCPU lower and upper limits:
 
