@@ -44,7 +44,7 @@ The accessibility of environment variables inside runtime services depends on th
 - [Golang](/documentation/services/runtimes/golang.html) — `os.LookupEnv('key')`
 - [PHP](/documentation/services/runtimes/php.html) — `getenv("key")`
 
-As the key , you can either directly use an environment variable name (such as `port`) or a composite key `<prefix_name>`, where the prefix is the service hostname, in which the environment variable name is defined followed by `_` and the name itself (such as `db_connectionString`).
+As the **`key`** , you can either directly use an environment variable name (such as `port`) or a composite key `<prefix_name>`, where the prefix is the service hostname, in which the environment variable name is defined followed by `_` and the name itself (such as `db_connectionString`).
 
 <!-- markdownlint-disable DOCSMD004 -->
 ::: tip The default value of the [variables_order] PHP directive
