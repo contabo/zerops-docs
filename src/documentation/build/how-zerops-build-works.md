@@ -14,7 +14,7 @@ The same [zerops.yml](/documentation/build/build-config.html) file is also used 
 
 A new build can be triggered by using the Zerops [zCLI](/documentation/cli/installation-authorization.html) or connecting a Zerops service to a [GitHub](/documentation/github/github-integration.html) / [GitLab](/documentation/gitlab/gitlab-integration.html) repository.
 
-The build process has access to all of the project service [environment variables](/documentation/environment-variables/how-to-access.html) so that you can utilize them.
+The build process has access to all of the project service [environment variables](/documentation/environment-variables/overview.html#referencing-environment-variables) so that you can utilize them.
 
 ## Examples
 

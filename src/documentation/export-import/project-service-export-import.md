@@ -229,7 +229,7 @@ The default value ==`true`== indicates if a web server runs on the port (HTTP ap
 
 `envVariables`: Map[key:value] (optional)
 
-A sequence of [service environment variables](/documentation/environment-variables/how-to-access.html) (0~N).
+A sequence of [service environment variables](/documentation/environment-variables/overview.html#referencing-environment-variables) (0~N).
 
 ##### key
 

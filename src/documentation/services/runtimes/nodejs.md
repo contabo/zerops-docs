@@ -162,7 +162,7 @@ The runtime environment service is not configured to support direct access using
 
 Other services can access the Node.js application using its **hostname** and **port** environment variables, as they are part of the same private project network (for example, `http://app:3000`).
 
-It's always recommended to not set the configuration values as constants directly into the application code. It is preferable to use them indirectly, for example, via [custom environment variables](/knowledge-base/best-practices/how-to-use-environment-variables-efficiently.html), referencing Zerops [implicit environment variables](/documentation/environment-variables/helper-variables.htm) and given that [all environment variables](/documentation/environment-variables/how-to-access.html) are shared within the project across all services.
+It's always recommended to not set the configuration values as constants directly into the application code. It is preferable to use them indirectly, for example, via [custom environment variables](/knowledge-base/best-practices/how-to-use-environment-variables-efficiently.html), referencing Zerops [implicit environment variables](/documentation/environment-variables/helper-variables.htm) and given that [all environment variables](/documentation/environment-variables/overview.html#referencing-environment-variables) are shared within the project across all services.
 
 ### From other Zerops projects
 

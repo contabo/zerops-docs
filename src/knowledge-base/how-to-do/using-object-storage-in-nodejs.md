@@ -35,7 +35,7 @@ runs:
 
 Using the following function, ==`getCredentials`== , you can get an object which will be used later for authentication when creating buckets and their content.
 
-Assuming that the code is associated with access to the Zerops Object Storage Service, the [object storage name](/documentation/services/storage/s3.html#object-storage-name) of which was chosen as the ==**`store`**== . The necessary [Storage access details](/documentation/services/storage/s3.html#from-local-environment) values **Access Key Id** and **Secret Access Key** are then taken from the [environment variables](/documentation/environment-variables/how-to-access.html).
+Assuming that the code is associated with access to the Zerops Object Storage Service, the [object storage name](/documentation/services/storage/s3.html#object-storage-name) of which was chosen as the ==**`store`**== . The necessary [Storage access details](/documentation/services/storage/s3.html#from-local-environment) values **Access Key Id** and **Secret Access Key** are then taken from the [environment variables](/documentation/environment-variables/overview.html#referencing-environment-variables).
 
 <!-- markdownlint-disable DOCSMD004 -->
 ::: tip

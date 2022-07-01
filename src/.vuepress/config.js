@@ -177,9 +177,8 @@ module.exports = {
           title: 'Environment variables',
           collapsable: false,
           children: [
-            'environment-variables/how-to-access',
-            'environment-variables/helper-variables',
-            'environment-variables/commit-changes',
+            'environment-variables/overview',
+            'environment-variables/helper-variables'
           ]
         },
         {
@@ -415,9 +414,8 @@ module.exports = {
           title: 'Environment variables',
           collapsable: false,
           children: [
-            'environment-variables/how-to-access',
-            'environment-variables/helper-variables',
-            'environment-variables/commit-changes',
+            'environment-variables/overview',
+            'environment-variables/helper-variables'
           ]
         },
         {

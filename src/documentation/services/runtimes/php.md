@@ -201,7 +201,7 @@ The runtime environment service is not configured to support direct access using
 
 Other services can access the PHP application using its **hostname** and **port** environment variables, as they are part of the same private project network (for example, `http://app` , where the port `:80` is implicit).
 
-It's always recommended to not set the configuration values as constants directly into the application code. It is preferable to use them indirectly, for example, via [custom environment variables](/knowledge-base/best-practices/how-to-use-environment-variables-efficiently.html), referencing Zerops [implicit environment variables](/documentation/environment-variables/helper-variables.htm) and given that [all environment variables](/documentation/environment-variables/how-to-access.html) are shared within the project across all services.
+It's always recommended to not set the configuration values as constants directly into the application code. It is preferable to use them indirectly, for example, via [custom environment variables](/knowledge-base/best-practices/how-to-use-environment-variables-efficiently.html), referencing Zerops [implicit environment variables](/documentation/environment-variables/helper-variables.htm) and given that [all environment variables](/documentation/environment-variables/overview.html#referencing-environment-variables) are shared within the project across all services.
 
 ### From other Zerops projects
 
@@ -253,7 +253,7 @@ Zerops PHP service includes the most used PHP extensions by default. If you need
 
 ## How to customize php.ini setting from application code
 
-To overwrite current `php.ini` settings, it's necessary to create a new `PHP_INI_SCAN_DIR` [environment variable](/documentation/environment-variables/how-to-access.html). As its value, you have to enter the full path to a directory located in the application code scanned by the system for all files ending in `.ini` in alphabetical order, where you can place any directive and its value.
+To overwrite current `php.ini` settings, it's necessary to create a new `PHP_INI_SCAN_DIR` [environment variable](/documentation/environment-variables/overview.html#referencing-environment-variables). As its value, you have to enter the full path to a directory located in the application code scanned by the system for all files ending in `.ini` in alphabetical order, where you can place any directive and its value.
 
 You can also use the path **`:`** separator to define the relative order to the pre-defined `php.ini` [configuration](https://www.php.net/manual/en/configuration.file.php). Placing it at the beginning means that `.ini` files from the application code will overwrite the existing `php.ini` settings. Placing it at the end means the logic is reversed. Pre-defined `php.ini` configuration will overwrite `.ini` files from the application code.
 

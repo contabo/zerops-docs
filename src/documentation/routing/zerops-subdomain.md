@@ -6,7 +6,7 @@ Each [service](/documentation/overview/projects-and-services-structure.html#serv
 
 The Zerops subdomain can't be modified at the moment.
 
-The Zerops subdomain is also stored under a `zeropsSubdomain` key in [environment variables](/documentation/environment-variables/how-to-access.html) of the given service.
+The Zerops subdomain is also stored under a `zeropsSubdomain` key in [environment variables](/documentation/environment-variables/overview.html#referencing-environment-variables) of the given service.
 
 <!-- markdownlint-disable DOCSMD004 -->
 ::: warning NOT FOR PRODUCTION
