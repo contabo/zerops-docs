@@ -412,14 +412,14 @@ Actual service RAM lower and upper limits:
 |:-----------------|:-----------|:-----------|:----|
 |PostgreSQL        |1           |32          |0.25 |
 |MariaDB           |1           |32          |0.25 |
-|KeyDB             |1           |32          |0.25 |
-|RabbitMQ          |1           |32          |0.25 |
-|Shared storage    |1           |32          |0.25 |
-|Node.js           |1           |32          |0.25 |
-|Golang            |1           |32          |0.25 |
-|PHP+Apache        |1           |32          |0.25 |
-|PHP+Nginx         |1           |32          |0.25 |
-|Static server     |1           |32          |0.25 |
+|KeyDB             |0.25        |32          |0.25 |
+|RabbitMQ          |0.25        |32          |0.25 |
+|Shared storage    |0.25        |32          |0.25 |
+|Node.js           |0.25        |32          |0.25 |
+|Golang            |0.25        |32          |0.25 |
+|PHP+Apache        |0.25        |32          |0.25 |
+|PHP+Nginx         |0.25        |32          |0.25 |
+|Static server     |0.25        |32          |0.25 |
 
 The lower and upper service limits of RAM can be generally different for each service type and can be changed in the future.
 

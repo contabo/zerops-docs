@@ -18,39 +18,92 @@ The Zerops **zCLI** command-line client can be installed using **npm**
 npm i -g @zerops/zcli
 ```
 
-and it will be available under the ==`zcli`== command.
+and it will be available under the **`zcli`** command.
 
-### Static binary
+### Download the zCLI static binary
 
-Alternatively, the **zCLI** binary can be downloaded from [GitHub releases](https://github.com/zeropsio/zcli/releases). You have to select the appropriate version corresponding to the system you want to run it on.
+Alternatively, only the **zCLI** binary can be downloaded from [GitHub releases](https://github.com/zeropsio/zcli/releases). You have to select the appropriate version corresponding to the system you want to run it on.
 
 #### macOS x64
 
 ```bash
-# Modify the PATH appropriately to run it globally.
-$ wget https://github.com/zeropsio/zcli/releases/download/<version>/zcli-darwin-amd64 -O zcli
+$ wget https://github.com/zeropsio/zcli/releases/latest/download/zcli-darwin-amd64 -O zcli
 $ chmod +x zcli
+
+# Modify the system PATH appropriately or use a symlink to run it globally.
+# If you want to use it globally, running it just entering the `zcli` command,
+# we recommend creating a symbolic link using the following command.
+
+# The command supposes that the current directory is the same directory you downloaded
+# the zCLI binary file, and the directory where the symlink will be created
+# is a directory already on the system PATH.
+
+$ sudo ln -s $(pwd)/zcli /usr/local/bin/zcli
+```
+
+#### macOS M1
+
+```bash
+$ wget https://github.com/zeropsio/zcli/releases/latest/download/zcli-darwin-arm64 -O zcli
+$ chmod +x zcli
+
+# Modify the system PATH appropriately or use a symlink to run it globally.
+# If you want to use it globally, running it just entering the `zcli` command,
+# we recommend creating a symbolic link using the following command.
+
+# The command supposes that the current directory is the same directory you downloaded
+# the zCLI binary file, and the directory where the symlink will be created
+# is a directory already on the system PATH.
+
+$ sudo ln -s $(pwd)/zcli /usr/local/bin/zcli
 ```
 
 #### Linux x64
 
 ```bash
-# Modify the PATH appropriately to run it globally.
-$ wget https://github.com/zeropsio/zcli/releases/download/<version>/zcli-linux-amd64 -O zcli
+$ wget https://github.com/zeropsio/zcli/releases/latest/download/zcli-linux-amd64 -O zcli
 $ chmod +x zcli
+
+# Modify the system PATH appropriately or use a symlink to run it globally.
+# If you want to use it globally, running it just entering the `zcli` command,
+# we recommend creating a symbolic link using the following command.
+
+# The command supposes that the current directory is the same directory you downloaded
+# the zCLI binary file, and the directory where the symlink will be created
+# is a directory already on the system PATH.
+
+$ sudo ln -s $(pwd)/zcli /usr/local/bin/zcli
 ```
 
 #### Linux i386
 
 ```bash
-# Modify the PATH appropriately to run it globally.
-$ wget https://github.com/zeropsio/zcli/releases/download/<version>/zcli-linux-i386 -O zcli
+$ wget https://github.com/zeropsio/zcli/releases/latest/download/zcli-linux-i386 -O zcli
 $ chmod +x zcli
+
+# Modify the system PATH appropriately or use a symlink to run it globally.
+# If you want to use it globally, running it just entering the `zcli` command,
+# we recommend creating a symbolic link using the following command.
+
+# The command supposes that the current directory is the same directory you downloaded
+# the zCLI binary file, and the directory where the symlink will be created
+# is a directory already on the system PATH.
+
+$ sudo ln -s $(pwd)/zcli /usr/local/bin/zcli
 ```
 
 #### Windows x64
 
 ```bash
-# Modify the PATH appropriately to run it globally.
-$ wget https://github.com/zeropsio/zcli/releases/download/<version>/zcli-win-x64.exe -O zcli.exe
+curl https://github.com/zeropsio/zcli/releases/latest/download/zcli-win-x64.exe -L -o zcli.exe
+
+# Modify the system PATH appropriately or use a symlink to run it globally.
+# If you want to use it globally, running it just entering the `zcli` command,
+# we recommend creating a symbolic link using the following command.
+
+# The command supposes that the current directory is the same directory you downloaded
+# the zCLI binary file, and the directory where the symlink will be created
+# is a directory already on the system PATH.
+
+mklink %LOCALAPPDATA%\Microsoft\WindowsApps\zcli.exe %CD%\zcli.exe
 ```
