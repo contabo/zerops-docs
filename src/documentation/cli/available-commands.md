@@ -56,6 +56,42 @@ zcli login my@mail.com foobar123
 :::
 <!-- markdownlint-enable DOCSMD004 -->
 
+## `vpn start [project name]`
+
+Used to establish a secure connection to your protected project network. Requires the `project name` to be defined.
+
+<!-- markdownlint-disable DOCSMD004 -->
+::: tip Using quotes
+You must enclose the project name in quotes if it contains a space.
+:::
+<!-- markdownlint-enable DOCSMD004 -->
+
+<!-- markdownlint-disable DOCSMD004 -->
+::: warning Other WireGuard running processes
+The command `zcli vpn start` should only be run in an environment where no other WireGuard processes are running, otherwise we do not guarantee proper functionality.
+:::
+<!-- markdownlint-enable DOCSMD004 -->
+
+```bash
+zcli vpn start myproject
+```
+
+## `vpn stop`
+
+Disconnects the established VPN connection.
+
+```bash
+zcli vpn stop
+```
+
+## `vpn status`
+
+Prints the current VPN connection status.
+
+```bash
+zcli vpn status
+```
+
 ## `push [project name] [service name]`
 
 It can be used to trigger the [build pipeline](/documentation/build/how-zerops-build-works.html) defined in the project's `zerops.yml`. **By default, it will take into account your `.gitignore`**, therefore the same files that you are tracking in your repository will be used to build the application from your local environment.
@@ -132,40 +168,4 @@ You must enclose the version name in quotes if it contains a space.
 
 ```bash
 zcli deploy myproject myservice --versionName=v0.0.1 ./dist/app/~/
-```
-
-## `vpn start [project name]`
-
-Used to establish a secure connection to your protected project network. Requires the `project name` to be defined.
-
-<!-- markdownlint-disable DOCSMD004 -->
-::: tip Using quotes
-You must enclose the project name in quotes if it contains a space.
-:::
-<!-- markdownlint-enable DOCSMD004 -->
-
-<!-- markdownlint-disable DOCSMD004 -->
-::: warning Other WireGuard running processes
-The command `zcli vpn start` should only be run in an environment where no other WireGuard processes are running, otherwise we do not guarantee proper functionality.
-:::
-<!-- markdownlint-enable DOCSMD004 -->
-
-```bash
-zcli vpn start myproject
-```
-
-## `vpn stop`
-
-Disconnects the established VPN connection.
-
-```bash
-zcli vpn stop
-```
-
-## `vpn status`
-
-Prints the current VPN connection status.
-
-```bash
-zcli vpn status
 ```

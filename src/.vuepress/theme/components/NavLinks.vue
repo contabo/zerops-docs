@@ -131,7 +131,7 @@ export default {
       if (discord) {
         return /^https?:/.test(discord)
           ? repo
-          : `https://discord.gg/${discord}`
+          : `https://discord.com/invite/${discord}`
       }
       return null
     },

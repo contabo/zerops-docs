@@ -37,7 +37,7 @@ module.exports = {
     editLinks: false,
     docsDir: 'documentation',
     editLinkText: '',
-    discord: 'c58kMZaEuS',
+    discord: 'WDvCZ54',
     lastUpdated: false,
     logo: '/logo.png',
     nav: [
