@@ -97,19 +97,29 @@ If one of the above happens, the latest **Zerops build base image** is used, and
 
 There is no access either to the application sources or any previous **custom build image** during the `prepare` phase, but only to the **Zerops build base image**.
 
+<!-- markdownlint-disable DOCSMD004 -->
+::: tip Using a single/multiple shell instance(s)
+The commands in the `prepare` section can be run by the same way as in the [build](#example-using-a-single-shell-instance) section.
+:::
+<!-- markdownlint-enable DOCSMD004 -->
+
 ### `build`
 
 Specify which commands to run to produce the final application runtime deployed into a Zerops service. These commands run during each build process from the first to the last.
 
 #### Example using a single shell instance
 
+This syntax allows you to run all commands one by one in the same environment context. For example, if one command changes the current directory, the next continues with that change. Or, if one command adds an environment variable, the next can also see it.
+
 ```yaml
-build: |
+build: - |
   npm install
   npm run build
 ```
 
 #### Example using multiple shell instances
+
+Each command is run in a separate environment context. For example, each shell instance starts in the home directory again. Or, if one command adds an environment variable, it won't be here for the next one.
 
 ```yaml
 build:
@@ -216,9 +226,23 @@ If one of the above happens, the latest **Zerops runtime image** is used, and th
 
 There is no access to the application sources, the code being deployed, or any previous **custom runtime image** during the `prepare` phase, but only to the **Zerops runtime image**.
 
+<!-- markdownlint-disable DOCSMD004 -->
+::: tip Using a single/multiple shell instance(s)
+The commands in the `prepare` section can be run by the same way as in the [build](#example-using-a-single-shell-instance) section.
+:::
+<!-- markdownlint-enable DOCSMD004 -->
+
 ### `init` (optional for all services)
 
 Specify which commands to run after a launch or each restart of a runtime container instance and after `prepare` commands (if they exist), for example, initialization or removing a custom application cache.
+
+Each command in the `init` section has to run successfully without any error. Otherwise, the service won't start, and the whole [run](#run-part-and-its-properties) part will be repeated.
+
+<!-- markdownlint-disable DOCSMD004 -->
+::: tip Using a single/multiple shell instance(s)
+The commands in the `init` part can be run by the same way as in the [build](#example-using-a-single-shell-instance) part.
+:::
+<!-- markdownlint-enable DOCSMD004 -->
 
 ### envReplace (optional for all services)
 

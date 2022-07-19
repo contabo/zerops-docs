@@ -1,6 +1,6 @@
 # Backup and Restore of Databases
 
-You can securely access your database service using the [VPN](/documentation/cli/vpn.html) built into our [CLI](/documentation/cli/installation-authorization.html). You can then use any of the tools provided by the database vendor or third-party tools ([MariaDB](/documentation/services/databases/mariadb.html#how-to-backup-restore-database-data), [PostgreSQL](/documentation/services/databases/postgresql.html#how-to-backup-restore-database-data), or [KeyDB](/documentation/services/databases/keydb.html#how-to-backup-restore-database-data)).
+You can securely access your database service using the [VPN](/documentation/cli/vpn.html) built into our [zCLI](/documentation/cli/installation-authorization.html). You can then use any of the tools provided by the database vendor or third-party tools ([MariaDB](/documentation/services/databases/mariadb.html#how-to-backup-restore-database-data), [PostgreSQL](/documentation/services/databases/postgresql.html#how-to-backup-restore-database-data), or [KeyDB](/documentation/services/databases/keydb.html#how-to-backup-restore-database-data)).
 
 This can be used to dump data for use in a locally running database or when migrating away from Zerops. You can also utilize it to initially restore data to Zerops.
 
