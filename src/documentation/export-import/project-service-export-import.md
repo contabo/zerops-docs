@@ -439,10 +439,10 @@ Actual service DISK lower and upper limits:
 
 |Service DISK in GB |lower limit |upper limit |step |
 |:------------------|:-----------|:-----------|:----|
-|PostgreSQL         |5           |100         |0.5  |
-|MariaDB            |5           |100         |0.5  |
-|KeyDB              |5           |100         |0.5  |
-|RabbitMQ           |5           |100         |0.5  |
+|PostgreSQL         |1           |100         |0.5  |
+|MariaDB            |1           |100         |0.5  |
+|KeyDB              |1           |100         |0.5  |
+|RabbitMQ           |1           |100         |0.5  |
 |Shared storage     |1           |100         |0.5  |
 |Node.js            |1           |100         |0.5  |
 |Golang             |1           |100         |0.5  |

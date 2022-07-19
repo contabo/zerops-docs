@@ -46,6 +46,8 @@ Choose a short and descriptive URL-friendly name, for example, **mq**. The follo
 
 The ports will automatically be set to the values of **==1883==** (the `mqtt` protocol), **==5672==** (the `amqp` protocol), **==61613==** (the `stomp` protocol), **==15672==** (web management portal),  **==15674==** (WebSocket for the `stomp` protocol), **==15675==** (WebSocket for the `mqtt` protocol) and can't be changed.
 
+![RabbitMQ Service](./images/RabbitMQ-Internal-Ports.png "Message Broker Internal Ports")
+
 <!-- markdownlint-disable DOCSMD004 -->
 ::: warning Hostname is also used as the default admin user name
 The chosen **hostname** is automatically used to create an admin user account with all privileges and grant options for accessing the message broker. You can change it later if you prefer. The standard default user `guest` is removed during the installation phase of the service.
@@ -62,15 +64,39 @@ The RabbitMQ service is configured to **allow access** for native `mqtt`, `amqp`
 
 ##### Selective access to the internal ports
 
-You can use the Zerops HTTP routing feature for browser access to the RabbitMQ [web management portal](https://www.rabbitmq.com/management.html) (port 15672) or transmit messages using WebSockets and the RabbitMQ [STOMP](https://www.rabbitmq.com/web-stomp.html) (port 15674) and [MQTT](https://www.rabbitmq.com/web-mqtt.html) (port 15675) plugins. This access is disabled by default from the outside Internet, but if necessary you can enable it using the RabbitMQ **Internal ports** section:
+You can use the Zerops [subdomain](/documentation/routing/zerops-subdomain.html) feature to access the RabbitMQ [web management portal](https://www.rabbitmq.com/management.html) (port 15672).
 
-![RabbitMQ Service](./images/RabbitMQ-Internal-Ports.png "Message Broker Internal Ports")
+![RabbitMQ Service](./images/RabbitMQ-Subdomain_Web_Management_Portal.png "Subdomain to Web Management Portal")
 
-In turn, Zerops uses this setting to optimize its internal logic to only offer enabled options and SSL certificates in useful places. These ports are used to set up public Internet access as described in the following section: [From the external Internet environment](#from-the-external-internet-environment).
+<!-- markdownlint-disable DOCSMD004 -->
+::: tip Web management portal access in HA mode
+If you enable the Zerops subdomain to access the portal from the Internet, you will see the URL list of the RabbitMQ cluster nodes first:
 
-The following image shows the case of the `management.ikbase.eu` public domain is pointed to the web management portal of the RabbitMQ service on the host `mq:15672`. The same could be done for WebSockets STOMP `wsstomp.ikbase.eu` -> `mq:15674` or MQTT `wsmqtt.ikbase.eu` -> `mq:15675` plugins.
+* RabbitMQ GUI Container 1 `https://<hostname>-<randomId>-<port>.app.zerops.io/rabbit1`
+* RabbitMQ GUI Container 2 `https://<hostname>-<randomId>-<port>.app.zerops.io/rabbit2`
+* RabbitMQ GUI Container 3 `https://<hostname>-<randomId>-<port>.app.zerops.io/rabbit3`
+
+You can click on any of these three URLs to access the web management portal on the corresponding RabbitMQ cluster node because all nodes are equivalent. The logic is precisely the same even when you access the portal through a mapped public domain.
+:::
+<!-- markdownlint-enable DOCSMD004 -->
+
+The Zerops HTTP routing feature allows you also to map public domains or subdomains to the RabbitMQ [web management portal](https://www.rabbitmq.com/management.html) (port 15672), or WebSockets [STOMP](https://www.rabbitmq.com/web-stomp.html) (port 15674) and [MQTT](https://www.rabbitmq.com/web-mqtt.html) (port 15675) plugins. It enables access from public Internet through web browsers, and even transmit messages using STOMP and MQTT protocols.
+
+![RabbitMQ Service](./images/RabbitMQ-Public_Domains_Mapping.png "Public Domains Mapping")
+
+Zerops uses this possibilities to offer only appropriate options and SSL certificates in useful places. These ports are used to set up public Internet access as described in the following section: [From the external Internet environment](#from-the-external-internet-environment).
+
+The following image shows the case of the `portal.ikbase.eu` public subdomain is pointed to the web management portal of the RabbitMQ service on the host `mq:15672`. The same can be done for WebSockets STOMP `stomp.ikbase.eu` -> `mq:15674` or MQTT `mqtt.ikbase.eu` -> `mq:15675` plugins.
 
 ![Public Routing](./images/RabbitMQ-Public-Access-Internal-Ports.png "Public Routing Overview")
+
+<!-- markdownlint-disable DOCSMD004 -->
+::: warning Mapping to STOMP and MQTT WebSockets plugins
+Both RabbitMQ STOMP and MQTT plugins are located on the `/ws` path. That's why you should use the same `/ws` public path to map the public subdomains. It's also important to remember that the described Zerops mapping transforms the URL that a JavaScript client uses to `wss://stomp.ikbase.eu/ws` or `wss://mqtt.ikbase.eu/ws`. It means that the `443` port is used, not the `15674` or `15675` ports from the public Internet.
+
+In the case of HA mode, WebSockets requests are transparently routed to the individual RabbitMQ nodes through the load balancers, which are part of the RabbitMQ cluster. Take a look at the [RabbitMQ Service in HA Mode, a deep-dive view](/documentation/overview/how-zerops-works-inside/rabbitmq-cluster-internally.html).
+:::
+<!-- markdownlint-enable DOCSMD004 -->
 
 #### HA / non-HA message broker mode
 
@@ -104,6 +130,8 @@ The messaging service is not configured to support direct access using SSL/TLS o
 Other services can access the broker using its **hostname** and **port** environment variables (the primary native `amqp` communication protocol is applied), as they are part of the same private project network (for example, `amqp://mq:5672`). It’s highly recommended that you utilize the **==connectionString==** environment variable that Zerops creates automatically for the message broker in non-HA mode. See also the explanation of environment variables specifics for HA mode below. More information related to **connectionString** can be found in the dedicated [environment variables](/documentation/environment-variables/overview.html#referencing-environment-variables) section. See also a list of all automatically generated [environment variables](/documentation/environment-variables/helper-variables.html#rabbitmq) for the RabbitMQ service.
 
 If you need to use the `mqtt` or `stomp` protocols, use the **==connectionStringMqtt==** or **==connectionStringStomp==** environment variables (**portMqtt** and **portStomp** ones also exist).
+
+![RabbitMQ Service](./images/RabbitMQ-Message-Broker-Environment-Variables.png "Message Broker Environment Variables")
 
 For more flexibility with future potential hostname changes, it's always recommended to use them indirectly via [custom environment variables](/knowledge-base/best-practices/how-to-use-environment-variables-efficiently.html) (referencing implicit Zerops environment [variables](/documentation/environment-variables/helper-variables.html#rabbitmq)) in each project service separately. This allows you to eliminate all direct dependencies in the application code, which in turn provides simplification and increased flexibility. Another reason not to hard-code the values inside your applications is that it can be dangerous because it is easy to commit them (like your credentials) into a repository, potentially exposing them to more people than intended.
 
@@ -161,8 +189,8 @@ If you log in as the `zps` user and make inappropriate changes to the system con
 
 ## Default hardware configuration and autoscaling
 
-* Each RabbitMQ container (1 in non-HA, 3 in HA) starts with the technological minimum of vCPUs (allowing a meaningful initial start and response time), 0.5 GB RAM, and 5 GB of disk space.
-* Zerops will only automatically scale the database [vertically](/documentation/automatic-scaling/how-automatic-scaling-works.html#vertical-scaling) (both in non-HA and HA mode).
+* Each RabbitMQ container (1 in non-HA, 3 in HA) starts with the technological minimum of vCPUs (allowing a meaningful initial start and response time), 0.25 GB RAM, and 1 GB of disk space.
+* Zerops will only automatically scale the resources [vertically](/documentation/automatic-scaling/how-automatic-scaling-works.html#vertical-scaling) (both in non-HA and HA mode).
 * The [horizontal autoscaling](/documentation/automatic-scaling/how-automatic-scaling-works.html#horizontal-scaling) in HA mode is not applied because of optimal performance.
 
 ## Backup and Restore

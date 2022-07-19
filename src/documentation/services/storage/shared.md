@@ -94,7 +94,7 @@ Zerops is able to create shared storage services found in the [import YAML scrip
 ## Default hardware configuration and autoscaling
 
 * In HA mode, the Shared storage service is instantiated always with **3 containers**. This means that any files are always replicated through 3 different physical places. In non-HA mode, only **1 container** is used.
-* Each of them runs in a different container located on a **different physical machine** and starts with 1 vCPU, 0.25 GB RAM, and 5 GB of disk space.
+* Each of them runs in a different container located on a **different physical machine** and starts with 1 vCPU, 0.25 GB RAM, and 1 GB of disk space.
 * Zerops will automatically scale the container resources only **vertically** (up to 20 vCPU, 32 GB RAM, 100 GB disk space).
 * You can also manually adjust those resources' custom upper limit manually in the Zerops GUI.
 

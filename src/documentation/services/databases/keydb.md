@@ -110,7 +110,7 @@ To understand this better, take a look at the following section: [With external 
 
 ## Default hardware configuration and autoscaling
 
-* Each KeyDB container (1 in non-HA, 2 in HA) starts with 1 vCPU, 0.25 GB RAM, and 5 GB of disk space.
+* Each KeyDB container (1 in non-HA, 2 in HA) starts with 1 vCPU, 0.25 GB RAM, and 1 GB of disk space.
 * Zerops will automatically scale the HW resources both in non-HA and HA mode only [vertically](/documentation/automatic-scaling/how-automatic-scaling-works.html#vertical-scaling).
 
 ## Database data persistence
