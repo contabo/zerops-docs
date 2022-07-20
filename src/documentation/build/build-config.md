@@ -112,9 +112,10 @@ Specify which commands to run to produce the final application runtime deployed 
 This syntax allows you to run all commands one by one in the same environment context. For example, if one command changes the current directory, the next continues with that change. Or, if one command adds an environment variable, the next can also see it.
 
 ```yaml
-build: - |
-  npm install
-  npm run build
+build:
+  - |
+    npm install
+    npm run build
 ```
 
 #### Example using multiple shell instances
