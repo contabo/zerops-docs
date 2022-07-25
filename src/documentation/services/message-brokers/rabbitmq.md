@@ -64,7 +64,7 @@ The RabbitMQ service is configured to **allow access** for native `mqtt`, `amqp`
 
 ##### Selective access to the internal ports
 
-You can use the Zerops [subdomain](/documentation/routing/zerops-subdomain.html) feature to access the RabbitMQ [web management portal](https://www.rabbitmq.com/management.html) (port 15672).
+You can use the Zerops [subdomain](/documentation/routing/zerops-subdomain.html) feature to access the RabbitMQ [web management portal](https://www.rabbitmq.com/management.html) (port 15672) and subdomains with the <strong>wss</strong> protocol are intended to be used as URLs to connect to the STOMP (15674) and MQTT (15675) WebSocket servers on the RabbitMQ service. See also an explanation about [mapping to the STOMP and MQTT WebSockets server plugins](#mapping-to-stomp-and-mqtt-websockets-server-plugins) from the outside Internet.
 
 ![RabbitMQ Service](./images/RabbitMQ-Subdomain_Web_Management_Portal.png "Subdomain to Web Management Portal")
 
@@ -72,9 +72,9 @@ You can use the Zerops [subdomain](/documentation/routing/zerops-subdomain.html)
 ::: tip Web management portal access in HA mode
 If you enable the Zerops subdomain to access the portal from the Internet, you will see the URL list of the RabbitMQ cluster nodes first:
 
-* RabbitMQ GUI Container 1 `https://<hostname>-<randomId>-<port>.app.zerops.io/rabbit1`
-* RabbitMQ GUI Container 2 `https://<hostname>-<randomId>-<port>.app.zerops.io/rabbit2`
-* RabbitMQ GUI Container 3 `https://<hostname>-<randomId>-<port>.app.zerops.io/rabbit3`
+* RabbitMQ GUI Container 1 `<hostname>-<randomId>-<port>.app.zerops.io/rabbit1/#/`
+* RabbitMQ GUI Container 2 `<hostname>-<randomId>-<port>.app.zerops.io/rabbit2/#/`
+* RabbitMQ GUI Container 3 `<hostname>-<randomId>-<port>.app.zerops.io/rabbit3/#/`
 
 You can click on any of these three URLs to access the web management portal on the corresponding RabbitMQ cluster node because all nodes are equivalent. The logic is precisely the same even when you access the portal through a mapped public domain.
 :::
@@ -90,9 +90,10 @@ The following image shows the case of the `portal.ikbase.eu` public subdomain is
 
 ![Public Routing](./images/RabbitMQ-Public-Access-Internal-Ports.png "Public Routing Overview")
 
+##### Mapping to STOMP and MQTT WebSockets server plugins
 <!-- markdownlint-disable DOCSMD004 -->
-::: warning Mapping to STOMP and MQTT WebSockets plugins
-Both RabbitMQ STOMP and MQTT plugins are located on the `/ws` path. That's why you should use the same `/ws` public path to map the public subdomains. It's also important to remember that the described Zerops mapping transforms the URL that a JavaScript client uses to `wss://stomp.ikbase.eu/ws` or `wss://mqtt.ikbase.eu/ws`. It means that the `443` port is used, not the `15674` or `15675` ports from the public Internet.
+::: tip
+Both RabbitMQ STOMP and MQTT WebSocket server plugins are located on the `/ws` path. That's why you should use the same `/ws` public path to map the public subdomains. It's also important to remember that the described Zerops mapping transforms the URL that a JavaScript client uses to `wss://stomp.ikbase.eu/ws` or `wss://mqtt.ikbase.eu/ws`. It means that the `443` port is used, not the `15674` or `15675` ports from the public Internet.
 
 In the case of HA mode, WebSockets requests are transparently routed to the individual RabbitMQ nodes through the load balancers, which are part of the RabbitMQ cluster. Take a look at the [RabbitMQ Service in HA Mode, a deep-dive view](/documentation/overview/how-zerops-works-inside/rabbitmq-cluster-internally.html).
 :::
