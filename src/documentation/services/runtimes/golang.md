@@ -41,7 +41,7 @@ services:
 
 #### Which version to choose
 
-You can currently only choose Golang version **v1** (version v1.17.8 to be precise).
+You can currently only choose Golang version **v1** (version v1.18.4 to be precise).
 
 Used as the export & import type: ==`golang@1`== .
 
