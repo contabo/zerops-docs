@@ -145,7 +145,7 @@ Once you get the `getCredentials` and `getS3Client` functions from the previous 
     $value = getenv("${objectStorageName}_${accessKeyId}");
     if ($value && $localBucketName) {
       // Unique bucket name preparation.
-      return "${value}.${localBucketName}";
+      return strtolower("${value}.${localBucketName}");
     }
     return null;
   }

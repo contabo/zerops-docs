@@ -134,7 +134,7 @@ const getUniqueBucketName = (objectStorageName, localBucketName) => {
    // Getting the environment variable value that will be used as the unique prefix.
    const value = env[`${objectStorageName}_${accessKeyId}`];
    // Unique bucket name preparation.
-   return value && localBucketName ? `${value}.${localBucketName}` : null;
+   return value && localBucketName ? `${value}.${localBucketName}`.toLowerCase() : null;
 }
 
 // Function declaration.

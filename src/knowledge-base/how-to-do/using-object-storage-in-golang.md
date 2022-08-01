@@ -170,6 +170,7 @@ Once you get the `getCredentials` and `getS3Client` functions from the previous 
 import {
   "fmt"
   "os"
+  "strings",
   "github.com/aws/aws-sdk-go-v2/service/s3"
 }
 
@@ -187,7 +188,7 @@ func getUniqueBucketName(objectStorageName string, localBucketName string) (*str
     return nil, errors.New("non-existed accessKeyId environment variable")
   }
   // Unique bucket name preparation.
-  bucketName := value + "." + localBucketName;
+  bucketName := strings.ToLower(value + "." + localBucketName);
   return &bucketName, nil
 }
 
