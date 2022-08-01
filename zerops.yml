@@ -1,11 +1,11 @@
 stage:
   build:
     # select what technology your build uses
-    base: [ nodejs@16 ]
+    base: [ nodejs@14 ]
     # which commands to run to build
     build:
       - npm cache clean --force
-      - npm i --legacy-peer-deps
+      - npm i
       - npm i -g vuepress
       - vuepress build src
     # which files / folders to deploy after build
@@ -13,11 +13,11 @@ stage:
 prod:
   build:
     # select what technology your build uses
-    base: [ nodejs@16 ]
+    base: [ nodejs@14 ]
     # which commands to run to build
     build:
       - npm cache clean --force
-      - npm i --legacy-peer-deps
+      - npm i
       - npm i -g vuepress
       - vuepress build src
     # which files / folders to deploy after build
@@ -25,11 +25,11 @@ prod:
 contabo:
   build:
     # select what technology your build uses
-    base: [ nodejs@16 ]
+    base: [ nodejs@14 ]
     # which commands to run to build
     build:
       - npm cache clean --force
-      - npm i --legacy-peer-deps
+      - npm i
       - npm i -g vuepress
       - vuepress build src
     # which files / folders to deploy after build
