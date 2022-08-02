@@ -95,7 +95,7 @@ Specify which commands to run to install additional or custom dependencies on to
 
 If one of the above happens, the latest **Zerops build base image** is used, and the **prepare** commands run again.
 
-There is no access either to the application sources or any previous **custom build image** during the `prepare` phase, but only to the **Zerops build base image**.
+Application sources are downloaded before the `prepare` phase starts and, therefore, can be accessed by this process.
 
 <!-- markdownlint-disable DOCSMD004 -->
 ::: tip Using a single/multiple shell instance(s)
