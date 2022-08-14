@@ -144,6 +144,10 @@ For system maintenance reasons, the `zps` user is also automatically created wit
 :::
 <!-- markdownlint-enable DOCSMD004 -->
 
+## Default MariaDB database
+
+A new database with the name based on the selected **hostname** is created during the initial service setup (for example, database **db** if the chosen hostname was **db**). This database is created with the default `utf8mb4` charset, allowing to save 4-Bytes characters, like Emoji, without any problem. MariaDB generally doesn't require to specify a database when a new connection is created, and it's possible to connect just to the database server. But it's usual to connect using **connectionString** and add the target database as the `/<hostname>`.
+
 ## Default hardware configuration and autoscaling
 
 * Each MariaDB container (1 in non-HA, 3 in HA) starts with 1 vCPU, 1 GB RAM, and 1 GB of disk space.

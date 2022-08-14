@@ -217,7 +217,7 @@ Then you can show log messages with **facility number 16** ( ==`local0`== ) in t
 
 ![Logs](./images/Log_Records_Severities_NodeJS.png "Logs by severity")
 
-When you configure and run a web server (for example, [Express](https://www.npmjs.com/package/express), [NestJS](https://nestjs.com), [Koa](https://koajs.com)) as a part of the application code, you may prefer to log in a different way, for example, by using logging libraries such as [Winston](https://www.npmjs.com/package/winston), [Bunyan](https://www.npmjs.com/package/bunyan), or [Syslog-client](https://www.npmjs.com/package/syslog-client). These might be more suitable for your projects, especially for the production environment.
+When you configure and run a web server (for example, [Express](https://www.npmjs.com/package/express), [NestJS](https://nestjs.com), [Koa](https://koajs.com)) as a part of the application code, you may prefer to log in a different way, for example, by using logging libraries such as [Winston-Syslog](https://github.com/winstonjs/winston-syslog), [SSI-Logger](https://github.com/ssimicro/ssi-logger), or [Node-Syslog-Client](https://github.com/paulgrove/node-syslog-client). These might be more suitable for your projects, especially for the production environment.
 
 What's important in such cases is choosing **facility number 17** ( ==`local1`== ) as the configuration option. This is because the dedicated switch ==**`Show web server logs`**== in the **Runtime log** view that allows you to show web access & error logs separately from standard application logs. It's important, especially from an access log point of view, because there could be thousands and thousands of records.
 

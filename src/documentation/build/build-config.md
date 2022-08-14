@@ -251,12 +251,18 @@ This allows you to replace marked places in static files of deployed runtime app
 
 Zerops will execute the pattern search and replace when starting and restarting runtime containers. If a user wants to change the rules for replacing environment variables, a new deployment with an updated `zerops.yml` is needed. If a user only changes the value of an environment variable or makes any other change in the variable list, restarting the service is sufficient for the changes to take effect.
 
+<!-- markdownlint-disable DOCSMD004 -->
+::: warning When is the replacement processed?
+The process is done immediately before the `run.init` commands.
+:::
+<!-- markdownlint-enable DOCSMD004 -->
+
 #### target
 
 Specify one or more files/folders in which Zerops searches for combinations of defined delimiters and environment variable keys. If it finds any of them, it replaces the found pattern with a current environment variable value if the corresponding variable key exists.
 
 <!-- markdownlint-disable DOCSMD004 -->
-::: warning What is processed in a specified folder
+::: warning What is processed in a specified folder?
 Only files directly located in the given directory are processed and not in sub-directories.
 :::
 <!-- markdownlint-enable DOCSMD004 -->
