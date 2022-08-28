@@ -253,7 +253,8 @@ services:
   type: php-apache@7.4+2.4
   # Whether the service will be run on one or multiple containers.
   # Since this is a utility service, using only one container is fine.
-  mode: NON_HA
+  minContainers: 1
+  maxContainers: 1
   # Folder name used as the root of the publicly accessible web server content.
   documentRoot: public
   # Repository that contains phpPgAdmin code with build and deploy instructions.
@@ -261,10 +262,9 @@ services:
   # Setting of the "DATABASE_HOSTNAME" environment variable.
   # It specifies the chosen hostname for the Zerops PostgreSQL service that should be managed.
   envVariables:
-  - key: DATABASE_HOSTNAME
     # Here, the Zerops PostgreSQL service's chosen hostname is "db".
     # Change it if you need to use a different one.
-    content: db
+    DATABASE_HOSTNAME: db
 ```
 
 After that you can either use **phpPgAdmin** either using [Zerops VPN](/documentation/cli/vpn.html) built into the [zCLI](/documentation/cli/installation.html) through URL `http://<hostname>:<port>` (here, it means: `http://phppgadmin`) or enable Zerops [subdomain access](/documentation/routing/zerops-subdomain.html).
