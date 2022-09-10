@@ -251,6 +251,25 @@ Zerops PHP service includes the most used PHP extensions by default. If you need
 |[filter](https://www.php.net/manual/en/book.filter.php)        |[mysqlnd](https://www.php.net/manual/en/book.mysqlnd.php)    |[redis](https://github.com/phpredis/phpredis)                  |[sysvsem](https://www.php.net/manual/en/sem.installation.php)|                                                             |
 |[gd](https://www.php.net/manual/en/book.image.php)             |[openssl](https://www.php.net/manual/en/book.openssl.php)    |[Reflection](https://www.php.net/manual/en/book.reflection.php)|[sysvshm](https://www.php.net/manual/en/sem.installation.php)|                                                             |
 
+## How to enable/disable installed PHP modules through PHP CLI
+
+You can install any other PHP module not listed in the [pre-installed module table](/documentation/services/runtimes/php.html#pre-installed-php-modules-and-extensions) above using the [build.prepare](/documentation/build/build-config.html#prepare-optional), [run.prepare](/documentation/build/build-config.html#prepare-optional-for-all-services) or [run.init](/documentation/build/build-config.html#init-optional-for-all-services) commands in the `zerops.yml` configuration. After that you need to enable such an installed module in `php.ini` using the PHP CLI command.
+
+```bash
+<hostname>:
+   run:
+      prepare:
+         - apt-get install -y php8.0-soap
+         - phpenmod soap
+```
+
+There are also affiliated PHP CLI commands for disabling modules and getting their statuses:
+
+```bash
+phpdismod <module> # Used to disable modules in PHP.
+phpquery <module> # Used to view status of modules of PHP.
+```
+
 ## How to customize php.ini setting from application code
 
 To overwrite current `php.ini` settings, it's necessary to create a new `PHP_INI_SCAN_DIR` [environment variable](/documentation/environment-variables/overview.html#referencing-environment-variables). As its value, you have to enter the full path to a directory located in the application code scanned by the system for all files ending in `.ini` in alphabetical order, where you can place any directive and its value.
