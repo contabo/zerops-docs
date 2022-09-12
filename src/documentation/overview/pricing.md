@@ -10,7 +10,7 @@ Everything starts with an idea. To make it a reality, you need a team of co-deve
 
 ## Credit and free Zerops credit
 
-To begin with, you'll get \$100 worth of Zerops credit. This is a stress-free way to start off and gives you the freedom to explore all the features which could provide added value for you and your team. This credit can be used for everything including specific add-ons, such as the dedicated IPv4 address. After using up the \$100, you can manually top up your credit using a credit card or set up weekly/monthly automatic payments. At the same time, you can also set up a daily project cost limit to ensure that you don't run over your budget. The VAT rate is 21% for EU countries. We will also notify you by e-mail when your credit is too low (i.e., less than calculated 10%).
+To begin with, you'll get \$20 worth of Zerops credit. This is a stress-free way to start off and gives you the freedom to explore all the features which could provide added value for you and your team. This credit can be used for everything including specific add-ons, such as the dedicated IPv4 address. After using up the \$20, you can manually top up your credit using a credit card or set up weekly/monthly automatic payments. At the same time, you can also set up a daily project cost limit to ensure that you don't run over your budget. The VAT rate is 21% for EU countries. We will also notify you by e-mail when your credit is too low (i.e., less than calculated 10%).
 
 ## Projects
 
