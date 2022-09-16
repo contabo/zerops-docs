@@ -2,9 +2,11 @@
 
 [[toc]]
 
+<!--
 ## `region list`
 
 Lists all available Zerops regions, i.e., the location of data centers where Zerops is operated.
+-->
 
 ## `login`
 
@@ -16,7 +18,7 @@ All login parameters can be used as command line parameters `--parameterName` or
 
 #### `--region`
 
-The specification to which Zerops data center a user wants to log in. Actually, two of them are Prague (EU) and  St. Louis (US). As the default value, the Prague location is taken (the corresponding value is `prod`). For St. Louis (US), choose the value `usc1`.
+The required specification to which Zerops data center a user wants to log in. Actually, St. Louis (US) is available, and as such, you have to choose only the value `usc1`.
 
 ```bash
 zcli login --region=usc1
