@@ -2,6 +2,10 @@
 
 [[toc]]
 
+## `region list`
+
+Lists all available Zerops regions, i.e., the location of data centers where Zerops is operated.
+
 ## `login`
 
 Should be used after you install **zcli**. You usually only need to log in once per device.
@@ -9,6 +13,14 @@ Should be used after you install **zcli**. You usually only need to log in once 
 ### Login parameters
 
 All login parameters can be used as command line parameters `--parameterName` or environment variables as `PARAMETERNAME`. A command parameter has priority over an environment variable if both equivalents exist.
+
+#### `--region`
+
+The specification to which Zerops data center a user wants to log in. Actually, two of them are Prague (EU) and  St. Louis (US). As the default value, the Prague location is taken (the corresponding value is `prod`). For St. Louis (US), choose the value `usc1`.
+
+```bash
+zcli login --region=usc1
+```
 
 #### `--zeropsToken`
 
