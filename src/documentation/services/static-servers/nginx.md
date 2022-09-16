@@ -141,6 +141,15 @@ There are **two ways** you can physically deliver application code to the servic
 
 When a Zerops service has been connected to a GitHub or GitLab repository, you can select the checkbox `Build immediately after the service creation` to run the first build immediately after the service creation. Otherwise, you have to make a **new commit/tag** to invoke that first [build & deploy](http://localhost:8081/documentation/build/how-zerops-build-works.html) pipeline task.
 
+The minimum `zerops.yml` configuration file you need to have in the root project directory is shown below. It says the entire repository content (without any build steps) should be [deployed](/documentation/build/build-config.html#deploy) into the runtime container.
+
+```yaml
+<hostname>:
+  build:
+    build: []
+    deploy: [.]
+```
+
 ![Service connected to a Repository](./images/Repository-Triggering-Tag-Commit.png "Repository triggering on a Tag/Commit")
 
 When the build process has been successfully finished, you can download the entire zipped **artifact of the build container** and browse it locally if you need to check its content.
@@ -150,7 +159,7 @@ When the build process has been successfully finished, you can download the enti
 
 <!-- markdownlint-disable DOCSMD004 -->
 ::: tip A simple project and how to deploy the code using the Zerops zCLI
-You can look at this elementary project a step-by-step description. Take a look at how you can create and deploy it with the Zerops [zCLI](/documentation/cli/installation.html). It's assumed that you have already created your project in Zerops GUI and an empty Nginx service (not connected to any repository).  You can use a [service import](#simple-import-example-in-the-yaml-syntax) functionality for it.
+You can look at this elementary project a step-by-step description. Take a look at how you can create and deploy it with the Zerops [zCLI](/documentation/cli/installation.html). It's assumed that you have already created your project in Zerops GUI and an empty Nginx service (not connected to any repository). You can use a [service import](#using-the-import-functionality) functionality for it.
 
 * [Preparing and deploying a simple Nginx web](/knowledge-base/how-to-do/how-to-prepare-simple-nginx-web.html)
 :::

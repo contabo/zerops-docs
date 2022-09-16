@@ -136,7 +136,7 @@ zcli push myproject myservice --versionName=v0.0.1
 
 ## `deploy [project name] [service name] [space separated files or directories]`
 
-It is used to deploy directories and files to the Zerops service as an alternative to the [push](#push-project-name-service-name) command. Use when you want to deploy files that have already built by any means directly into a Zerops service.
+It is used to deploy directories and files to the Zerops service as an alternative to the [push](#push-project-name-service-name) command. Use when you want to deploy files that have already built by any means directly into a Zerops service runtime container. In such a case, you don't need the `zerops.yml` configuration file.
 
 <!-- markdownlint-disable DOCSMD004 -->
 ::: tip Using quotes
