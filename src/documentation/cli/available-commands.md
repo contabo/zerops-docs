@@ -44,6 +44,9 @@ You can also use the token value directly without the flag `--zeropsToken=`. zCL
 zcli login AC750cs64sas897sabs65sasbbas9asbdbasd65sadNa
 ```
 
+:::
+<!-- markdownlint-enable DOCSMD004 -->
+
 ## `vpn start [project name]`
 
 Used to establish a secure connection to your protected project network. Requires the `project name` to be defined.
