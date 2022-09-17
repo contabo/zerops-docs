@@ -12,9 +12,11 @@ Lists all available Zerops regions, i.e., the location of data centers where Zer
 
 Should be used after you install **zcli**. You usually only need to log in once per device.
 
-### Login parameters
+```bash
+zcli login --zeropsToken=<token> --region=<region>
+```
 
-All login parameters can be used as command line parameters `--parameterName` or environment variables as `PARAMETERNAME`. A command parameter has priority over an environment variable if both equivalents exist.
+### Login parameters
 
 #### `--region`
 
@@ -26,49 +28,21 @@ zcli login --region=usc1
 
 #### `--zeropsToken`
 
-The personal token you created in the Zerops GUI. It's preferable that the token is passed as the `ZEROPSTOKEN` environment variable, so that it doesn't show up in logs.
+The personal access token you created in the Zerops GUI. It's preferable that the token is passed as the `ZEROPSTOKEN` environment variable, so that it doesn't show up in logs for the security reasons. A command parameter has priority over an environment variable if both equivalents exist.
+
+![Access Tokens](./images/Personal_Access_Token.png "Personal Access Token")
 
 ```bash
 zcli login --zeropsToken=AC750cs64sas897sabs65sasbbas9asbdbasd65sadNa
 ```
 
 <!-- markdownlint-disable DOCSMD004 -->
-::: tip Personal token value without its flag
+::: tip Personal access token value without its flag
 You can also use the token value directly without the flag `--zeropsToken=`. zCLI recognizes this case correctly.
 
 ```bash
 zcli login AC750cs64sas897sabs65sasbbas9asbdbasd65sadNa
 ```
-
-:::
-<!-- markdownlint-enable DOCSMD004 -->
-
-#### `--zeropsLogin`
-
-The e-mail address you used to register your account. Use with your `--zeropsPassword`
-
-```bash
-zcli login --zeropsLogin=my@mail.com --zeropsPassword=foobar123
-```
-
-#### `--zeropsPassword`
-
-The password you used to register your account. Use with your `--zeropsLogin`. It is preferable that the password is passed as the `ZEROPSPASSWORD` environment variable, so that it doesn't show up in logs.
-
-```bash
-zcli login --zeropsLogin=my@mail.com --zeropsPassword=foobar123
-```
-
-<!-- markdownlint-disable DOCSMD004 -->
-::: tip Login and password values without their flags
-You can also use the e-mail address and password values directly without the flags `--zeropsLogin=` and `--zeropsPassword=`. zCLI recognizes this case correctly.
-
-```bash
-zcli login my@mail.com foobar123
-```
-
-:::
-<!-- markdownlint-enable DOCSMD004 -->
 
 ## `vpn start [project name]`
 
