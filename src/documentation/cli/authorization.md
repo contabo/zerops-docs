@@ -1,8 +1,8 @@
 # Authorization
 
-## Login using Personal access token
+## Login using Personal Access Token
 
-If you are using zCLI outside of your computer, as in a [GitHub Action](/documentation/deploy/use-in-github-actions.html) or a [GitLab Job](/documentation/deploy/use-in-gitlab-ci.html) you might want to use a **personal access token** to [`log in`](/documentation/cli/installation-authorization.html#login-using-personal-token). These can be created by clicking on your avatar in the top right corner and heading to the **Access token management** page.
+If you are using zCLI outside of your computer, as in a [GitHub Action](/documentation/deploy/use-in-github-actions.html) or a [GitLab Job](/documentation/deploy/use-in-gitlab-ci.html) you might want to use a **personal access token** to log in to Zerops. These can be created by clicking on your avatar in the top right corner and heading to the **Access token management** page.
 
 ![Access Tokens](./images/Personal_Access_Token.png "Personal Access Token")
 
