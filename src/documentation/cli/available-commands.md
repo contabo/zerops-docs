@@ -28,9 +28,7 @@ zcli login --region=usc1
 
 #### `--zeropsToken`
 
-The personal access token you created in the Zerops GUI. It's preferable that the token is passed as the `ZEROPSTOKEN` environment variable, so that it doesn't show up in logs for the security reasons. A command parameter has priority over an environment variable if both equivalents exist.
-
-![Access Tokens](./images/Personal_Access_Token.png "Personal Access Token")
+The [personal access token](/documentation/cli/authorization.html#login-using-personal-access-token) you created in the Zerops GUI. It's preferable that the token is passed as the `ZEROPSTOKEN` environment variable, so that it doesn't show up in logs for the security reasons. A command parameter has priority over an environment variable if both equivalents exist.
 
 ```bash
 zcli login --zeropsToken=AC750cs64sas897sabs65sasbbas9asbdbasd65sadNa
