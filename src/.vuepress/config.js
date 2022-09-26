@@ -189,6 +189,7 @@ module.exports = {
             'cli/authorization',
             'cli/available-commands',
             'cli/vpn',
+            'cli/ssh'
           ]
         },
         {
@@ -426,6 +427,7 @@ module.exports = {
             'cli/authorization',
             'cli/available-commands',
             'cli/vpn',
+            'cli/ssh'
           ]
         },
         {
