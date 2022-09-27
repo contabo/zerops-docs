@@ -32,7 +32,7 @@ The rules you have to understand to correctly establish an SSH connection to a Z
 * with the working directory `/root`,
 * after a successful connection, you can use `su <user>` for switching,
 * idle timeout set on a server-side is 15 minutes,
-* this time is possible to control via the client's keep alive setting,
+* this duration is possible to control via the client's keep alive setting,
 * all Zerops environment variables for such a container are available,
 * you don't need to specify any SSH key,
 * the zCLI VPN tunnel itself guarantees security,
@@ -47,7 +47,8 @@ ssh node-id-13.runtime.api.zerops 65437
 > Host 'node-id-13.runtime.api.zerops' resolved to 2a02:1360:3:4e00::a00:7.
 > Connecting to 2a02:1360:3:4e00::a00:7:65437...
 > Connection established.
-> Welcome to a Zerops container SSH session. You are logged in as root.
+> Welcome to a Zerops container SSH session!
+> You are logged in as root. Be careful making permanent changes, you can lose stuff.
 ```
 
 Your SSH tool may inform you that the container's host key is not registered in the local host key database. You can accept it for one use or accept and save it for the next time. If you don't choose a `root` user name as a switch, the `root` user will be used automatically by default.
