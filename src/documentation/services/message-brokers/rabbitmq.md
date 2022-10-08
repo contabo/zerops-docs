@@ -31,7 +31,7 @@ services:
 
 #### Which version to choose
 
-You can currently only choose version **v3** (version 3.9.13 to be precise).
+You can currently only choose version **v3** (version 3.9.13, to be precise).
 
 Used as the export & import types: ==`rabbitmq@3`== .
 

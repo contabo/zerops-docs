@@ -31,7 +31,7 @@ services:
 
 #### Which version to choose
 
-You can currently only choose PostgreSQL version **v12** (version 12.10 to be precise).
+You can currently only choose PostgreSQL version **v12** (version 12.10, to be precise).
 
 Used as the export & import type: ==`postgresql@12`== .
 
@@ -158,7 +158,7 @@ A new database with the name based on the selected **hostname** is created durin
 * Each PostgreSQL container (1 in non-HA, 3 in HA) starts with 1 vCPU, 1 GB RAM, and 1 GB of disk space.
 * Zerops will automatically scale the HW resources both [vertically](/documentation/automatic-scaling/how-automatic-scaling-works.html#vertical-scaling) (in non-HA and HA mode) and [horizontally](/documentation/automatic-scaling/how-automatic-scaling-works.html#horizontal-scaling) (in HA mode only).
 
-## How to backup / restore database data
+## How to backup or restore database data
 
 ### Using your favorite database management tool
 
@@ -289,7 +289,7 @@ A similar case would be with two immediately following SELECT statements to get 
 
 Each container has separate local disk space, which can theoretically be used by appropriate APIs of the database service and thus store data outside the replicated contents of the database. It should be noted that such data is reserved solely for this particular instance, and not mirrored across the PostgreSQL Patroni cluster nor backup-ed. It will not be migrated if such a container is deleted due to failure. Also, separate direct access to an individual PostgreSQL instance is not supported in any way.
 
-We don't recommend using the functionality of [COPY](https://www.postgresql.org/docs/current/sql-copy.html) because you can't save/load such data directly to/from any shared storage. Instead, use the standard functionality of the [export/import](/documentation/services/databases/postgresql.html#how-to-backup-restore-database-data) mechanism.
+We don't recommend using the functionality of [COPY](https://www.postgresql.org/docs/current/sql-copy.html) because you can't save/load such data directly to/from any shared storage. Instead, use the standard functionality of the [export/import](/documentation/services/databases/postgresql.html#how-to-backup-or-restore-database-data) mechanism.
 
 ### Selected specifics of a Patroni HA cluster
 

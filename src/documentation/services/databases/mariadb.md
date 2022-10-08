@@ -37,13 +37,13 @@ services:
 
 #### Which version to choose
 
-You can currently only choose MariaDB version **v10.4** (version 10.4.24 to be precise).
+You can currently only choose MariaDB version **v10.4** (version 10.4.24, to be precise).
 
 Used as the export & import type: ==`mariadb@10.4`== .
 
 <!-- markdownlint-disable DOCSMD004 -->
 ::: tip Changing version
-Switching must be done manually by creating a new service with another version and migrating data using a [backup / restore](#how-to-backup-restore-database-data) pattern.
+Switching must be done manually by creating a new service with another version and migrating data using a [backup / restore](#how-to-backup-or-restore-database-data) pattern.
 :::
 <!-- markdownlint-enable DOCSMD004 -->
 
@@ -154,7 +154,7 @@ A new database with the name based on the selected **hostname** is created durin
 * Zerops will only automatically scale the database [vertically](/documentation/automatic-scaling/how-automatic-scaling-works.html#vertical-scaling) (both in non-HA and HA mode).
 * The [horizontal autoscaling](/documentation/automatic-scaling/how-automatic-scaling-works.html#horizontal-scaling) in HA mode is not applied because of optimal performance.
 
-## How to backup / restore database data
+## How to backup or restore database data
 
 ### Using your favorite database management tool
 
@@ -265,7 +265,7 @@ You can also force synchronization to wait for causality checks on a cluster by 
 
 Each container has separate local disk space, which can theoretically be used by appropriate APIs of the database service and thus store data outside the replicated contents of the database. It should be noted that such data is only reserved for this particular instance, not mirrored across the MariaDB Galera cluster, nor is it backed up. It will not be migrated if such a container is deleted due to failure. Also, separate direct access to an individual MariaDB instance is not supported in any way.
 
-We don't recommend using any functionality of [SELECT INTO OUTFILE](https://mariadb.com/kb/en/select-into-outfile), [SELECT INTO DUMPFILE](https://mariadb.com/kb/en/select-into-dumpfile), [LOAD_FILE](https://mariadb.com/kb/en/load_file), or [LOAD DATA](https://dev.mysql.com/doc/refman/8.0/en/load-data.html). You can't save/load such data directly to/from any shared storage, and in the Galera HA cluster environment, it is impossible to predict which container the selected data will be stored on. Instead, use the the [export/import](/documentation/services/databases/mariadb.html#how-to-backup-restore-database-data) mechanism's standard functionality.
+We don't recommend using any functionality of [SELECT INTO OUTFILE](https://mariadb.com/kb/en/select-into-outfile), [SELECT INTO DUMPFILE](https://mariadb.com/kb/en/select-into-dumpfile), [LOAD_FILE](https://mariadb.com/kb/en/load_file), or [LOAD DATA](https://dev.mysql.com/doc/refman/8.0/en/load-data.html). You can't save/load such data directly to/from any shared storage, and in the Galera HA cluster environment, it is impossible to predict which container the selected data will be stored on. Instead, use the the [export/import](/documentation/services/databases/mariadb.html#how-to-backup-or-restore-database-data) mechanism's standard functionality.
 
 ### Selected specifics of a Galera HA cluster
 

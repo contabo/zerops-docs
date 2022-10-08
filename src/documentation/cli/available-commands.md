@@ -158,3 +158,11 @@ You must enclose the version name in quotes if it contains a space.
 ```bash
 zcli deploy myproject myservice --versionName=v0.0.1 ./dist/app/~/
 ```
+
+## `service [command]`
+
+It represents a group of commands for managing individual Zerops services. Generally, there are the following commands:
+
+[`import`](#import-project-name-or-project-id-path-to-import-script-file) Allows creating one or more Zerops services in an existing project via [import scripts](/documentation/export-import/project-service-export-import.html#services).
+
+### `import [project name or project id] [path to import script file]`

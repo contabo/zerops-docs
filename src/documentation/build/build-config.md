@@ -62,7 +62,7 @@ List the Zerops technologies your build uses as the **Zerops build base image** 
 
 #### Supported base images
 
-##### `nodejs@<12, 14, 16>`
+##### `nodejs@<14, 16>`
 
 Includes `npm`, `yarn`, `git`, `npx`.
 

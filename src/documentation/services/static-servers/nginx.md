@@ -51,7 +51,7 @@ services:
 
 #### Which version to choose
 
-You can currently only choose Nginx version **v1.20** (version 1.20.1 to be precise).
+You can currently only choose Nginx version **v1.20** (version 1.20.1, to be precise).
 
 Used as the export & import type: ==`nginx@1.20`== .
 

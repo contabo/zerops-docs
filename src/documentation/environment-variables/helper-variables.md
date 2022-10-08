@@ -17,10 +17,6 @@ use. They cannot be deleted, their keys cannot be changed and those marked with 
 
 🔒 Unique subdomain of Zerops, i.e. `my-app-30001.app.zerops.io`, this variable is always available, but subdomain access has to be enabled inside the service routing settings.
 
-* `startCommand`
-
-Command used for running the user defined application which corresponds to the command filled when creating a service.
-
 ## PHP/Nginx
 
 * `hostname`

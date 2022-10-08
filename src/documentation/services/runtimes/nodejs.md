@@ -32,18 +32,15 @@ services:
   - port: 3000
     # If a web server is running on the port.
     httpSupport: true
-  # A command that should start your service.
-  # It will be triggered after each deployment or after you manually start or re-start it.
-  startCommand: npm start
 ```
 
 ### Through the Zerops GUI interface
 
 #### Which version to choose
 
-You can currently choose Node.js version **v16** (version v16.14.0 to be precise), **v14** (version 14.19.0 to be precise), or **v12** (version 12.22.10 to be precise). The chosen version **can't be changed afterwards**.
+You can currently choose Node.js version **v16** (version v16.14.0, to be precise), or **v14** (version 14.19.0, to be precise). The chosen version **can't be changed afterward**.
 
-Used as the export & import types: ==`nodejs@16`== , ==`nodejs@14`== , or ==`nodejs@12`== .
+Used as the export & import types: ==`nodejs@16`== , or ==`nodejs@14`== .
 
 <!-- markdownlint-disable DOCSMD004 -->
 ::: tip Changing versions

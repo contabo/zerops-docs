@@ -1,6 +1,6 @@
 # Export & import of Zerops projects and services structure
 
-Zerops export and import functionality can be used to make a copy of an existing project/service or as an alternative to adding a new project/service manually through the Zerops GUI. It is important to note that only structure, configuration, and environment variables are exported/imported. Restoring application data related to databases ([PostgreSQL](/documentation/services/databases/postgresql.html#how-to-backup-restore-database-data), [MariaDB](/documentation/services/databases/mariadb.html#how-to-backup-restore-database-data), [KeyDB](/documentation/services/databases/keydb.html#how-to-backup-restore-database-data)), storage ([Object Storage](/documentation/services/storage/s3.html#using-rclone-as-a-local-management-tool), Shared Storage), and engines ([RabbitMQ](/documentation/services/message-brokers/rabbitmq.html#how-to-backup-restore-queues-data)), deploying applications, and setting up [public routing](/documentation/routing/using-your-domain.html) is up to the specific user.
+Zerops export and import functionality can be used to make a copy of an existing project/service or as an alternative to adding a new project/service manually through the Zerops GUI. It is important to note that only structure, configuration, and environment variables are exported/imported. Restoring application data related to databases ([PostgreSQL](/documentation/services/databases/postgresql.html#how-to-backup-or-restore-database-data), [MariaDB](/documentation/services/databases/mariadb.html#how-to-backup-or-restore-database-data), [KeyDB](/documentation/services/databases/keydb.html#how-to-backup-or-restore-database-data)), storage ([Object Storage](/documentation/services/storage/s3.html#using-rclone-as-a-local-management-tool), Shared Storage), and engines ([RabbitMQ](/documentation/services/message-brokers/rabbitmq.html#how-to-backup-restore-queues-data)), deploying applications, and setting up [public routing](/documentation/routing/using-your-domain.html) is up to the specific user.
 
 [[TOC]]
 
@@ -109,7 +109,7 @@ Comprehensive table of available types:
 |PostgreSQL     |postgresql@12                                              |
 |MariaDB        |mariadb@10.4                                               |
 |KeyDB          |keydb@6                                                    |
-|Node.js        |nodejs@16, nodejs@14, nodejs@12                            |
+|Node.js        |nodejs@16, nodejs@14                                       |
 |Golang         |golang@1                                                   |
 |PHP+Apache     |php-apache@8.1+2.4, php-apache@8.0+2.4, php-apache@7.4+2.4 |
 |PHP+Nginx      |php-nginx@8.1+1.20, php-nginx@8.0+1.20, php-nginx@7.4+1.20 |

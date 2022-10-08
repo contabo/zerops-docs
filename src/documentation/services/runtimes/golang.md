@@ -32,17 +32,13 @@ services:
   - port: 8080
     # If a web server is running on the port.
     httpSupport: true
-  # A command that should start your service.
-  # It will be triggered after each deployment or after you manually start or re-start it.
-  # The executable can be created using a command: go build -o ./bin/server ./app/server.go
-  startCommand: ./bin/server
 ```
 
 ### Through the Zerops GUI interface
 
 #### Which version to choose
 
-You can currently only choose Golang version **v1** (version v1.18.4 to be precise).
+You can currently only choose Golang version **v1** (version v1.18.4, to be precise).
 
 Used as the export & import type: ==`golang@1`== .
 

@@ -33,7 +33,7 @@ services:
 
 #### Which version to choose
 
-You can currently only choose version **v6** (version 6.2.2 to be precise).
+You can currently only choose version **v6** (version 6.2.2, to be precise).
 
 Used as the export & import type: ==`keydb@6`== .
 
@@ -135,7 +135,7 @@ However, if KeyDB stops working without a correct shutdown for any reason, you s
 :::
 <!-- markdownlint-enable DOCSMD004 -->
 
-## How to backup / restore database data
+## How to backup or restore database data
 
 ### Using your favorite database management tool
 
