@@ -17,6 +17,14 @@ use. They cannot be deleted, their keys cannot be changed and those marked with 
 
 🔒 Unique subdomain of Zerops, i.e. `my-app-30001.app.zerops.io`, this variable is always available, but subdomain access has to be enabled inside the service routing settings.
 
+* `projectId`
+
+🔒 Project's id to which the service belongs and which uniquely identifies it.
+
+* `serviceId`
+
+🔒 Service's id that uniquely identifies it.
+
 ## PHP/Nginx
 
 * `hostname`
@@ -35,6 +43,14 @@ use. They cannot be deleted, their keys cannot be changed and those marked with 
 
 Folder from which php scripts should be executed. Deployed files are unpacked at `/var/www`.
 
+* `projectId`
+
+🔒 Project's id to which the service belongs and which uniquely identifies it.
+
+* `serviceId`
+
+🔒 Service's id that uniquely identifies it.
+
 ## PHP/Apache
 
 * `hostname`
@@ -49,6 +65,14 @@ Folder from which php scripts should be executed. Deployed files are unpacked at
 
 Folder from which php scripts should be executed. Deployed files are unpacked at `/var/www`.
 
+* `projectId`
+
+🔒 Project's id to which the service belongs and which uniquely identifies it.
+
+* `serviceId`
+
+🔒 Service's id that uniquely identifies it.
+
 ## MariaDB (MySQL)
 
 * `port`
@@ -62,6 +86,14 @@ Folder from which php scripts should be executed. Deployed files are unpacked at
 * `connectionString`
 
 🔒 Connection string.
+
+* `projectId`
+
+🔒 Project's id to which the service belongs and which uniquely identifies it.
+
+* `serviceId`
+
+🔒 Service's id that uniquely identifies it.
 
 * `user`
 
@@ -92,6 +124,14 @@ Database admin password (changing it won't affect the value in the database sett
 * `connectionStringReplicas`
 
 🔒 Connection string in HA cluster mode to create a connection through which only data reading requests (SQL statement SELECT) should be sent (any cluster member can process such requests).
+
+* `projectId`
+
+🔒 Project's id to which the service belongs and which uniquely identifies it.
+
+* `serviceId`
+
+🔒 Service's id that uniquely identifies it.
 
 * `user`
 
@@ -131,6 +171,14 @@ Database admin password (changing it won't affect the value in database settings
 
 🔒 Content of the server configuration located in most cases at `/etc/nginx/sites-available` used to define how the request should be handled by the php runtime.
 
+* `projectId`
+
+🔒 Project's id to which the service belongs and which uniquely identifies it.
+
+* `serviceId`
+
+🔒 Service's id that uniquely identifies it.
+
 ## KeyDB (Redis)
 
 * `port`
@@ -144,6 +192,14 @@ Database admin password (changing it won't affect the value in database settings
 * `connectionString`
 
 🔒 Connection string.
+
+* `projectId`
+
+🔒 Project's id to which the service belongs and which uniquely identifies it.
+
+* `serviceId`
+
+🔒 Service's id that uniquely identifies it.
 
 ## RabbitMQ
 
@@ -187,6 +243,14 @@ Database admin password (changing it won't affect the value in database settings
 
 🔒 Connection string for the `stomp` protocol.
 
+* `projectId`
+
+🔒 Project's id to which the service belongs and which uniquely identifies it.
+
+* `serviceId`
+
+🔒 Service's id that uniquely identifies it.
+
 * `user`
 
 Message broker admin username (changing it won't affect the value in engine settings, that needs to be updated manually, see [VPN](/documentation/cli/vpn.html)).
@@ -212,3 +276,11 @@ Message broker admin password (changing it won't affect the value in engine sett
 * `quotaGBytes`
 
 🔒 Upper bound for the maximum storage consumption.
+
+* `projectId`
+
+🔒 Project's id to which the service belongs and which uniquely identifies it.
+
+* `serviceId`
+
+🔒 Service's id that uniquely identifies it.

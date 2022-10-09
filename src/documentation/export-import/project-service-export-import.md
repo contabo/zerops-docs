@@ -42,13 +42,14 @@ services:
   priority: 1
   minContainers: 2
   verticalAutoscaling:
-    minCpu: 5
-    maxCpu: 10
+    minVCpu: 5
+    minRam: 1.25
+    maxVCpu: 10
   ports:
   - port: 3000
     httpSupport: true
   - port: 9090
-    protocol: UDP
+    protocol: udp
     httpSupport: false
   envVariables:
     jwt_token_secret: M3rW31Ne%T@bRk
@@ -217,7 +218,7 @@ A chosen port number.
 
 `protocol`: dictionary (optional)
 
-A chosen protocol. The default value is the ==`TCP`== and it does not have to be entered. The other possible option is the ==`UDP`== value.
+A chosen protocol. The default value is the ==`tcp`== and it does not have to be entered. The other possible option is the ==`udp`== value.
 
 ##### httpSupport
 
@@ -361,21 +362,21 @@ services:
 
 `verticalAutoscaling`: Map[`key:value`] (optional)
 
-A vertical autoscaling map allows the following keys: `minCpu`, `maxCpu`, `minRam`, `maxRam`, `minDisk`, `maxDisk`.
+A vertical autoscaling map allows the following keys: `minVCpu`, `maxVCpu`, `minRam`, `maxRam`, `minDisk`, `maxDisk`.
 
 Related to all services except [Object Storage](/documentation/services/storage/s3.html).
 
-##### minCpu
+##### minVCpu
 
-`minCpu`: integer [>= 1 and <= upper service limit] (optional)
+`minVCpu`: integer [>= 1 and <= upper service limit] (optional)
 
-A minimum number of virtual CPUs (vCPU) to be allocated for a given service. If the [maxCpu](#maxCpu) property is not specified, the service will be scaled to the upper service limit (which can be generally different for each service type and can be changed in the future).
+A minimum number of virtual CPUs (vCPU) to be allocated for a given service. If the [maxVCpu](#maxvcpu) property is not specified, the service will be scaled to the upper service limit (which can be generally different for each service type and can be changed in the future).
 
-##### maxCpu
+##### maxVCpu
 
-`maxCpu`: integer [>= [minCpu](#minCpu) and <= upper service limit] (optional)
+`maxVCpu`: integer [>= [minVCpu](#minvcpu) and <= upper service limit] (optional)
 
-A maximum number of virtual CPUs (vCPU) to be allocated for a given service. If the [minCpu](#minCpu) property is not specified, the service will be scaled from the lower service limit.
+A maximum number of virtual CPUs (vCPU) to be allocated for a given service. If the [minVCpu](#minvcpu) property is not specified, the service will be scaled from the lower service limit.
 
 Actual service vCPU lower and upper limits:
 
@@ -456,8 +457,8 @@ Example of the verticalAutoscaling syntax:
 
 ```yml
 verticalAutoscaling:
-  minVirtualCpu: 5
-  maxVirtualCpu: 10
+  minVCpu: 5
+  maxVCpu: 10
   maxRam: 19.75
   minDisk: 25.5
 ```
