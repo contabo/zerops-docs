@@ -273,18 +273,36 @@ services:
 
 #### `service name` for the service start command
 
-The required parameter `service name` has to be always defined. Specifies the Zerops service to which the directories and files should be deployed.
+The required parameter `service name` has to be always defined. Specifies the Zerops project's service to activate.
 
 ### `stop [project name or project id] [service name]`
 
 #### Specific service stop parameters
 
+The required parameter `service name` has to be always defined. Specifies the Zerops project's service to stop.
+
 ### `delete [project name or project id] [service name]`
 
 #### Specific service delete parameters
 
+The required parameter `service name` has to be always defined. Specifies the Zerops project's service to delete.
+
 ### `log [project name or project id] [service name] [flags]`
+
+By default the command returns the last 100 log messages and exits. Use the `--follow` flag to stream new log messages continuously.
 
 #### Specific service log parameters
 
+The required parameter `service name` has to be always defined. Specifies the Zerops project service whose runtime (including [run.prepare](/documentation/build/build-config.html#prepare-optional-for-all-services) and [run.init](/documentation/build/build-config.html#init-optional-for-all-services) parts) logs **from its all containers** you want to get.
+
+If you want to get only runtime log from a concrete container of the Zerops project's service, use the `service name@N` syntax, where `N` represent the number of the existed container, ie. 1, 2, 3, or 4.
+
+If you want to get only a build log (including [build.prepare](/documentation/build/build-config.html#prepare-optional)) from the last build pipeline, if it exists, use the `service name@build` syntax.
+
 #### log flags
+
+##### `--limit`
+
+`--limit`: integer [>= 1 and <= 1000] (optional)
+
+It specifies how many of the most recent log messages will be returned. The default value is 100.
