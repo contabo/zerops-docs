@@ -1,6 +1,6 @@
 # Using a shared IPv4 address in Zerops
 
-In addition to the fact that each Zerops [project](/documentation/overview/pricing.html#projects) you create will always be assigned a [unique IPv6 address](/documentation/routing/unique-ipv4-ipv6-addresses.html) (with the option to purchase [unique IPv4 addresses](/documentation/routing/unique-ipv4-ipv6-addresses.html)) as part of the core functionality, you also have the option to use a shared IPv4 address ==`93.185.106.19`== **without any additional fee**. It allows you to set up the **A record** of your public [domain access](/documentation/routing/using-your-domain.html).
+In addition to the fact that each Zerops [project](/documentation/overview/pricing.html#projects) you create will always be assigned a [unique IPv6 address](/documentation/routing/unique-ipv4-ipv6-addresses.html) (with the option to purchase [unique IPv4 addresses](/documentation/routing/unique-ipv4-ipv6-addresses.html)) as part of the core functionality, you also have the option to use a shared IPv4 address ==`154.53.47.7`== (Contabo Zerops: Region USC1) or ==`93.185.106.19`== (Zerops.io) **without any additional fee**. It allows you to set up the **A record** of your public [domain access](/documentation/routing/using-your-domain.html).
 
 <!-- markdownlint-disable DOCSMD004 -->
 ::: warning AAAA record must always be set up
@@ -8,7 +8,7 @@ The shared IPv4 will work for you only when you correctly set up a project dedic
 :::
 <!-- markdownlint-enable DOCSMD004 -->
 
-If you have already set up the A record of your public domain (for example, ==`mydomain.com`== ) to the shared IPv4 address of ==`93.185.106.19`== in the DNS configuration of your domain name registrar, together with the AAAA record to the dedicated project's IPv6 address, enter the domain name into the **Domains** form input. Zerops automatically handles everything else.
+If you have already set up the A record of your public domain (for example, ==`mydomain.com`== ) to the shared IPv4 address of ==`154.53.47.7`== (Contabo Zerops: Region USC1) or ==`93.185.106.19`== (Zerops.io) in the DNS configuration of your domain name registrar, together with the AAAA record to the dedicated project's IPv6 address, enter the domain name into the **Domains** form input. Zerops automatically handles everything else.
 
 ![Public Domain Access](./images/Public-Domain-Access-Shared-IPv4.png "Shared IPv4 Address")
 
