@@ -487,7 +487,13 @@ Zerops uses a YAML definition file to build your application. Normally, this fil
 
 In cases where it is sufficient to use an already existing and publicly available third-party application by using its source code repository, the request to place the `zerops.yml` configuration file would always lead to the need to create a new fork of this repository.
 
-But the `pipelineConfig` item allows you to place the necessary content of the `zerops.yml` configuration directly as a part of the import YAML script and avoid creating such a fork.
+But the `pipelineConfig` item allows you to place the necessary content of the `zerops.yml` configuration directly as a part of the import YAML script and avoid creating such a fork. If `pipelineConfig` is used, it has a higher priority than any existing `zerops.yml` file.
+
+<!-- markdownlint-disable DOCSMD004 -->
+::: tip Using existing repositories without changing their zerops.yml
+If you have repositories with already defined `zerops.yml` files, you can overwrite their effect using `pipelineConfig` in the import script. It allows you to use a different service hostname without modifying the `zerops.yml` file and committing such a change, for example.
+:::
+<!-- markdownlint-enable DOCSMD004 -->
 
 Example of the `pipelineConfig` syntax:
 
