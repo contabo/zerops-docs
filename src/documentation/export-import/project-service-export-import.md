@@ -453,7 +453,7 @@ Actual service DISK lower and upper limits:
 
 The lower and upper service limits of DISK can be generally different for each service type and can be changed in the future.
 
-Example of the verticalAutoscaling syntax:
+Example of the `verticalAutoscaling` syntax:
 
 ```yml
 verticalAutoscaling:
@@ -478,6 +478,48 @@ A public Git URL of a repository should be cloned by Zerops and used for buildin
 The format of the URL should be: `https://<domain>@<branchName>`
 
 Related only to [Node.js](/documentation/services/runtimes/nodejs.html#how-to-deploy-application-code), [Golang](/documentation/services/runtimes/golang.html#how-to-deploy-application-code), and [PHP](/documentation/services/runtimes/php.html#how-to-deploy-application-code) runtime environment services.
+
+#### pipelineConfig
+
+`pipelineConfig`: zerops.yml (optional)
+
+Zerops uses a YAML definition file to build your application. Normally, this file, [zerops.yml](/documentation/build/build-config.html), has to be placed in your application's root directory.
+
+In cases where it is sufficient to use an already existing and publicly available third-party application by using its source code repository, the request to place the `zerops.yml` configuration file would always lead to the need to create a new fork of this repository.
+
+But the `pipelineConfig` item allows you to place the necessary content of the `zerops.yml` configuration directly as a part of the import YAML script and avoid creating such a fork.
+
+Example of the `pipelineConfig` syntax:
+
+```yml
+services:
+- hostname: app
+  type: nodejs@16
+  ports:
+  - port: 3000
+    httpSupport: true
+  buildFromGit: https://github.com/third-party/project@main
+  pipelineConfig:
+    app:
+      build:
+        base:
+          - nodejs@16
+        build:
+          - npm i
+        deploy:
+          - package.json
+          - node_modules
+          - ./app/index.js
+      run:
+        start: yarn start
+  minContainers: 1
+```
+
+#### enableSubdomainAccess
+
+`enableSubdomainAccess`: boolean (optional)
+
+The default value is `false`. The value `true` allows to enable a [Zerops subdomain](/documentation/routing/zerops-subdomain.html) access immediately after a successful automatic build from a public repository specified by the `buildFromGit` item.
 
 ## Current known limitations
 
