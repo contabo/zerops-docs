@@ -12,7 +12,7 @@ Information on the compatibility of MariaDB software with similar, competing sof
 
 ## Adding the MariaDB Service in Zerops
 
-The Zerops MariaDB service is based on a [Linux LXD container](/documentation/overview/projects-and-services-structure.html#services-containers) with **Ubuntu** **==v22.04.01==**.
+The Zerops MariaDB service is based on a [Linux LXD container](/documentation/overview/projects-and-services-structure.html#services-containers) with **Ubuntu** **==v18.04.06==**.
 
 There are two possible ways of creating a new MariaDB service. Either manually in the [Zerops GUI](#through-the-zerops-gui-interface), or using the Zerops [import functionality](/documentation/export-import/project-service-export-import.html#how-to-export-import-a-project).
 
