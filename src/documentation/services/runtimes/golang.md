@@ -6,8 +6,8 @@ Zerops provides a fully managed and scaled Golang runtime service, suitable for 
 
 ## Adding the Golang Service in Zerops
 
-The Zerops Golang service is based on a [Linux LXD container](/documentation/overview/projects-and-services-structure.html#services-containers) with **Ubuntu** **==v18.04.06==**. It has the Git version control system pre-installed. Other pre-installed packages are
-[Zerops zcli](/documentation/cli/installation.html#download-the-zcli-static-binary) and [WireGuard](https://www.wireguard.com/install) for Ubuntu.
+The Zerops Golang service is based on a [Linux LXD container](/documentation/overview/projects-and-services-structure.html#services-containers) with **Ubuntu** **==v22.04.01==**. It has the Git version control system pre-installed. Other pre-installed packages are
+[Zerops zcli](/documentation/cli/installation.html#download-the-zcli-static-binary), [WireGuard](https://www.wireguard.com/install) for Ubuntu, and also the Golang environment to allow compilation and building even in the runtime and prepare containers.
 
 There are two possible ways to create a new Golang service. Either manually in the [Zerops GUI](#through-the-zerops-gui-interface), or using the Zerops [import functionality](/documentation/export-import/project-service-export-import.html#how-to-export-import-a-project).
 
@@ -38,7 +38,7 @@ services:
 
 #### Which version to choose
 
-You can currently only choose Golang version **v1** (version v1.18.4, to be precise).
+You can currently only choose Golang version **v1** (version v1.19.2, to be precise).
 
 Used as the export & import type: ==`golang@1`== .
 

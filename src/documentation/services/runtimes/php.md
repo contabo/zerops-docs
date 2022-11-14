@@ -6,7 +6,7 @@ Zerops provides a fully managed and scaled PHP runtime service, suitable for bot
 
 ## Adding the PHP Service in Zerops
 
-The Zerops PHP service is based on a [Linux LXD container](/documentation/overview/projects-and-services-structure.html#services-containers) with **Ubuntu** **==v18.04.06==**. It has the [Composer dependency manager](#pre-installed-php-composer), a lot of popular [PHP modules and extensions](#pre-installed-php-modules-and-extensions), together with the Git version control system pre-installed. Other pre-installed packages are
+The Zerops PHP service is based on a [Linux LXD container](/documentation/overview/projects-and-services-structure.html#services-containers) with **Ubuntu** **==v22.04.01==**. It has the [Composer dependency manager](#pre-installed-php-composer), a lot of popular [PHP modules and extensions](#pre-installed-php-modules-and-extensions), together with the Git version control system pre-installed. Other pre-installed packages are
 [Zerops zcli](/documentation/cli/installation.html#download-the-zcli-static-binary) and [WireGuard](https://www.wireguard.com/install) for Ubuntu.
 
 There are two possible ways to create a new PHP service. Either manually in the [Zerops GUI](#through-the-zerops-gui-interface), or using the Zerops [import functionality](/documentation/export-import/project-service-export-import.html#how-to-export-import-a-project).
@@ -35,7 +35,7 @@ services:
 
 #### Which version to choose
 
-You can currently choose PHP version **v8.1** (version v8.1.3, to be precise), **v8.0** (version v8.0.16, to be precise), or **v7.4** (version v7.4.28, to be precise). The chosen version **can't be changed afterward**. The service is always combined with a web server. It can be either **Apache v2.4** (version 2.4.29 to be precise) or **Nginx v1.20** (version 1.20.1 to be precise). The differences and configuration specifics for each web server are listed below.
+You can currently choose PHP version **v8.1** (version v8.1.12, to be precise), **v8.0** (version v8.0.25, to be precise), or **v7.4** (version v7.4.32, to be precise). The chosen version **can't be changed afterward**. The service is always combined with a web server. It can be either **Apache v2.4** (version 2.4.52 to be precise) or **Nginx v1.22** (version 1.22.1 to be precise). The differences and configuration specifics for each web server are listed below.
 
 Used as the export & import types: ==`php-apache@8.1+2.4`== , ==`php-apache@8.0+2.4`== , ==`php-apache@7.4+2.4`== , ==`php-nginx@8.1+2.4`== , ==`php-nginx@8.0+2.4`== , ==`php-nginx@7.4+2.4`== .
 

@@ -6,7 +6,7 @@ Zerops provides a fully managed and scaled [RabbitMQ](https://www.rabbitmq.com) 
 
 ## Adding the RabbitMQ Service in Zerops
 
-The Zerops RabbitMQ service is based on a [Linux LXD container](/documentation/overview/projects-and-services-structure.html#services-containers) with **Ubuntu** **==v18.04.06==**.
+The Zerops RabbitMQ service is based on a [Linux LXD container](/documentation/overview/projects-and-services-structure.html#services-containers) with **Ubuntu** **==v22.04.01==**.
 
 There are two possible ways of creating a new RabbitMQ service. Either manually in the [Zerops GUI](#through-the-zerops-gui-interface), or using the Zerops [import functionality](/documentation/export-import/project-service-export-import.html#how-to-export-import-a-project).
 

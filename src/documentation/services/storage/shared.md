@@ -12,7 +12,7 @@ If you are not sure what storage type to choose, take a look at [the best practi
 
 ## Adding the Shared Storage Service in Zerops
 
-The Zerops Shared Storage service is based on a [Linux LXD container](/documentation/overview/projects-and-services-structure.html#services-containers) with **Ubuntu** **==v18.04.06==**.
+The Zerops Shared Storage service is based on a [Linux LXD container](/documentation/overview/projects-and-services-structure.html#services-containers) with **Ubuntu** **==v18.04.06==** and **GlusterFS** **==v6.10==**.
 
 There are two possible ways of creating a new Shared Storage service. Either manually in the [Zerops GUI](#through-the-zerops-gui-interface), or using the Zerops [import functionality](/documentation/export-import/project-service-export-import.html#how-to-export-import-a-project).
 

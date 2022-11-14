@@ -110,11 +110,11 @@ Comprehensive table of available types:
 |PostgreSQL     |postgresql@12                                              |
 |MariaDB        |mariadb@10.4                                               |
 |KeyDB          |keydb@6                                                    |
-|Node.js        |nodejs@16, nodejs@14                                       |
+|Node.js        |nodejs@18, nodejs@16, nodejs@14                            |
 |Golang         |golang@1                                                   |
 |PHP+Apache     |php-apache@8.1+2.4, php-apache@8.0+2.4, php-apache@7.4+2.4 |
-|PHP+Nginx      |php-nginx@8.1+1.20, php-nginx@8.0+1.20, php-nginx@7.4+1.20 |
-|Static server  |nginx@1.20                                                 |
+|PHP+Nginx      |php-nginx@8.1+1.22, php-nginx@8.0+1.22, php-nginx@7.4+1.22 |
+|Static server  |nginx@1.22                                                 |
 |RabbitMQ       |rabbitmq@3                                                 |
 |Object storage |object-storage                                             |
 |Shared storage |shared-storage                                             |
@@ -302,7 +302,7 @@ For example, this could be the exported value if a user accepts the default sett
 ```yaml
 services:
   - hostname: phpnginx
-    type: php-nginx@8.0+1.20
+    type: php-nginx@8.0+1.22
     minContainers: 1
     maxContainers: 1
     nginxConfig: |
@@ -337,7 +337,7 @@ And this is an example for the same when creating the Nginx Static server servic
 ```yaml
 services:
   - hostname: nginx
-    type: nginx@1.20
+    type: nginx@1.22
     minContainers: 1
     maxContainers: 1
     nginxConfig: |

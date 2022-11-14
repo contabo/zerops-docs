@@ -6,7 +6,7 @@ Zerops provides a fully managed and scaled Node.js runtime service, suitable for
 
 ## Adding the Node.js Service in Zerops
 
-The Zerops Node.js service is based on a [Linux LXD container](/documentation/overview/projects-and-services-structure.html#services-containers) with **Ubuntu** **==v18.04.06==**. It has pre-installed NPM and YARN package managers, allowing you to install any package you want during the build stage, together with the Git version control system. Other pre-installed packages are
+The Zerops Node.js service is based on a [Linux LXD container](/documentation/overview/projects-and-services-structure.html#services-containers) with **Ubuntu** **==v22.04.01==**. It has pre-installed NPM and YARN package managers, allowing you to install any package you want during the build stage, together with the Git version control system. Other pre-installed packages are
 [Zerops zcli](/documentation/cli/installation.html#download-the-zcli-static-binary) and [WireGuard](https://www.wireguard.com/install) for Ubuntu.
 
 There are two possible ways to create a new Node.js service. Either manually in the [Zerops GUI](#through-the-zerops-gui-interface), or using the Zerops [import functionality](/documentation/export-import/project-service-export-import.html#how-to-export-import-a-project).
@@ -38,9 +38,9 @@ services:
 
 #### Which version to choose
 
-You can currently choose Node.js version **v16** (version v16.14.0, to be precise), or **v14** (version 14.19.0, to be precise). The chosen version **can't be changed afterward**.
+You can currently choose Node.js version **v18** (version v18.12.0, to be precise), **v16** (version v16.18.0, to be precise), or **v14** (version 14.21.0, to be precise). The chosen version **can't be changed afterward**.
 
-Used as the export & import types: ==`nodejs@16`== , or ==`nodejs@14`== .
+Used as the export & import types: ==`nodejs@18`== , ==`nodejs@16`== , or ==`nodejs@14`== .
 
 <!-- markdownlint-disable DOCSMD004 -->
 ::: tip Changing versions
