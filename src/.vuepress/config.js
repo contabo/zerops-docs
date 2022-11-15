@@ -166,6 +166,13 @@ module.exports = {
           ]
         },
         {
+          title: 'SMTP',
+          collapsable: false,
+          children: [
+            'smtp/emails'
+          ]
+        },
+        {
           title: 'Logs',
           collapsable: false,
           children: [
@@ -401,6 +408,13 @@ module.exports = {
           collapsable: false,
           children: [
             'export-import/project-service-export-import'
+          ]
+        },
+        {
+          title: 'SMTP',
+          collapsable: false,
+          children: [
+            'smtp/emails'
           ]
         },
         {
