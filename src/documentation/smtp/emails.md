@@ -17,6 +17,11 @@ udp dport 1-65535 drop
 
 You will be able to use the SMTP port 25 without restrictions when your Zerops account is paid, but not when using a free credit. Actually, it would be best if you asked for this unblocking the Zerops team through our [Discord forum](https://discord.com/invite/WDvCZ54) or by sending an email to [team@zerops.io](mailto:team@zerops.io).
 
+If the SMTP port 25 is enabled, you have two principal options for configuring the applications from a technical point of view so that they can send emails:
+
+* Directly connect to the destination SMTP server according to the DNS resolution of the recipient's email address.
+* Configure a connection to any public SMTP server with valid authentication credentials and send emails using it.
+
 <!-- markdownlint-disable DOCSMD004 -->
 ::: tip Using an IPv4 address
 You'll be able to send emails over an IPv4 address even if you don't have anyone assigned to your project. In such a case, our NAT server will be used.
