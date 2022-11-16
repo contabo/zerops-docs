@@ -48,7 +48,6 @@ services:
       - port: 8025
         httpSupport: true
       - port: 1025
-        httpSupport: true
     minContainers: 1
     maxContainers: 1
     buildFromGit: https://github.com/zeropsio/recipe-mailhog@main
