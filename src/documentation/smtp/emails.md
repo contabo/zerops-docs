@@ -1,6 +1,6 @@
 # SMTP configuration and email sending
 
-The default configuration of any Zerops project [private network](/documentation/routing/routing-between-project-services.html) blocks the SMTP 25  (legacy unsecure) and 587 (modern secure) ports from sending emails. The reason is primarily security and preventive protection against potential misuse of the offered [$20 credit](/documentation/overview/pricing.html#credit-and-free-zerops-credit) for the initial trial of Zerops for free for anyone.
+The default configuration of any Zerops project [private network](/documentation/routing/routing-between-project-services.html) blocks the SMTP 25 (legacy unsecured) and 587 (modern secure) ports from sending emails for security reasons. Contact us at [team@zerops.io](mailto:team@zerops.io) to manually enable the ports.
 
 In practice, all **outgoing TCP ports 1 - 1024 except 22, 80, and 443**, and also all **outgoing UDP ports 1 - 65635** are blocked by the project firewall. This setting, therefore, eliminates using of the SMTP port 25 or 587 for outgoing email messages.
 
@@ -15,9 +15,7 @@ tcp dport 1-1024 drop
 udp dport 1-65535 drop
 ```
 
-You will be able to use the SMTP port 25 or 587 without restrictions when your Zerops account is paid, but not when using a free credit. Actually, it would be best if you asked for this unblocking the Zerops team by sending an email to [team@zerops.io](mailto:team@zerops.io).
-
-If the SMTP port 25 and 587 is enabled, you have two principal options for configuring the applications from a technical point of view so that they can send emails:
+If the SMTP ports 25 and 587 are enabled, you have two principal options for configuring the applications from a technical point of view so that they can send emails:
 
 * Directly connect to the destination SMTP server according to the DNS resolution of the recipient's email address.
 * Configure a connection to any public SMTP server with valid authentication credentials and send emails using it.
