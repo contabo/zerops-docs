@@ -3,8 +3,8 @@
 Zerops **zCLI** is an open-sourced command-line client created using Go language and distributed through NPM or YARN, hosted on GitHub ([github.com/zeropsio/zcli](https://github.com/zeropsio/zcli)), built and published to package managers through a [GitHub Action](https://github.com/zeropsio/zcli/actions?query=workflow%3A%22Upload+build+asset%22). Currently, the **zCLI** is supported on **Linux** (x86 & x64 architecture), **macOS** (x64 & M1 architecture), and **Windows** (x64 architecture only).
 
 <!-- markdownlint-disable DOCSMD004 -->
-::: tip Built-in VPN functionality is not available in zCLI on Windows
- The implementation of a WireGuard based VPN built-in protocol is not yet ready. All data transfer between the local client environment and **Zerops** is encrypted using the secured HTTPS protocol.
+::: tip Built-in VPN functionality is available on all platforms
+ The implementation of a WireGuard-based [VPN](/documentation/cli/vpn.html) built-in protocol is available to use on all platforms for which zCLI exists.
 :::
 <!-- markdownlint-enable DOCSMD004 -->
 

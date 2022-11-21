@@ -38,6 +38,19 @@ The rules you have to understand to correctly establish an SSH connection to a Z
 * the zCLI VPN tunnel itself guarantees security,
 * only runtime and static server containers are connectable.
 
+<!-- markdownlint-disable DOCSMD004 -->
+::: tip Container full domain address and aliases
+The syntax of a full container's domain address inside the project's private network contains four parts:
+
+* Container incremental node's id as `node-id-X`, where `X` is a number starting with the value `1` and incremented with each new container (created by a new build) by one. If the service runs with more than one container (HA mode), they are numbered in sequence, and the next build renumbers them starting with the next available number in that number sequence.
+* Domain's name of the third level, always the value `runtime`.
+* Domain's name of the second level, equal to the chosen service `<hostname>`.
+* Domain's name of the first level, always the value `zerops`.
+
+If you want to establish the SSH connection with the same command and not constantly adjust the container node's name (because of the incrementing with a new build), you can use the alias `node1`. It always exists and points to the first existing and running container of such a service.
+:::
+<!-- markdownlint-enable DOCSMD004 -->
+
 Each SSH tool can have a few different switches or their order, but the two most typical syntaxes are:
 
 ```bash
