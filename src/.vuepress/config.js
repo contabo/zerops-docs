@@ -162,7 +162,8 @@ module.exports = {
           title: 'Export & Import',
           collapsable: false,
           children: [
-            'export-import/project-service-export-import'
+            'export-import/project-service-export-import',
+            'export-import/import-script-pre-processing'
           ]
         },
         {
@@ -407,7 +408,8 @@ module.exports = {
           title: 'Export & Import',
           collapsable: false,
           children: [
-            'export-import/project-service-export-import'
+            'export-import/project-service-export-import',
+            'export-import/import-script-pre-processing'
           ]
         },
         {
