@@ -158,7 +158,7 @@ The **string** is the only data type of all input parameters. Those input parame
 
 #### generateRandomString
 
-|           Description:|Generates a random string in the required length. The output contains only a combination of `a-zA-Z0-9` characters.                           |
+|           Description:|Generates a random string in the required length. The output contains only a random combination of `a-zA-Z0-9` and `_`, `-`, `.` characters.  |
 |----------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------|
 |        Syntax example:|`<@generateRandomString(<10>)>`                                                                                                               |
 |            Parameters:|                                                                                                                                              |
@@ -205,13 +205,13 @@ The **string** is the only data type of all input parameters. Those input parame
 
 #### generateRandomStringVar
 
-|           Description:|Generates a random string in the required length and stores it also for later use under the specified internal variable name. The output contains only a combination of `a-zA-Z0-9` characters. |
-|----------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|        Syntax example:|`<@generateRandomStringVar(<plainPassword>, <10>)>`                                                                                                                                             |
-|            Parameters:|                                                                                                                                                                                                |
-|           `<varName>`:|The required parameter of the internal variable name under which the provided content can be retrieved later using [getVar](#getvar) function. The chosen name is case-sensitive.               |
-|            `<length>`:|Required length of the string to be generated in characters (maximum allowed value is 1024).                                                                                                    |
-|        Returned value:|hR5hS79H4p                                                                                                                                                                                      |
+|           Description:|Generates a random string in the required length and stores it also for later use under the specified internal variable name. The output contains only a random combination of `a-zA-Z0-9`and `_`, `-`, `.` characters. |
+|----------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|        Syntax example:|`<@generateRandomStringVar(<plainPassword>, <10>)>`                                                                                                                                                                     |
+|            Parameters:|                                                                                                                                                                                                                        |
+|           `<varName>`:|The required parameter of the internal variable name under which the provided content can be retrieved later using [getVar](#getvar) function. The chosen name is case-sensitive.                                       |
+|            `<length>`:|Required length of the string to be generated in characters (maximum allowed value is 1024).                                                                                                                            |
+|        Returned value:|hR5hS79H4p                                                                                                                                                                                                              |
 
 #### getDateTime
 
